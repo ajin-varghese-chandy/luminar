@@ -44,7 +44,7 @@ def convert_pptx_to_md(pptx_path: Path):
         "",
     ]
 
-    md_path = pptx_path.with_suffix(".md")
+    md_path = pptx_path.parent / "README.md"
 
     stem_slug = re.sub(r"[^\w\-]+", "_", pptx_path.stem.strip())
 

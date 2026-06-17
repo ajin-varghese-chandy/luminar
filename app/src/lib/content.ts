@@ -1,7 +1,7 @@
 import path from "path"
 import fs from "fs/promises"
 
-const CONTENT_ROOT = path.resolve(process.cwd(), "..", "JUNE")
+const PARENT_ROOT = path.resolve(process.cwd(), "..")
 
 export interface DayMeta {
   slug: string
@@ -9,6 +9,7 @@ export interface DayMeta {
   month: string
   dayNumber: number
   path: string
+  monthDir: string
 }
 
 export interface DayContent {
@@ -16,36 +17,50 @@ export interface DayContent {
   markdown: string
 }
 
-function slugFromDir(dirName: string): { month: string; dayNumber: number; slug: string } {
-  const parts = dirName.split(" ")
-  const month = parts[0].toLowerCase()
-  const dayNumber = parseInt(parts[1], 10)
-  const slug = `${month}-day-${dayNumber}`
-  return { month, dayNumber, slug }
-}
-
 function extractTitle(markdown: string): string {
   const match = markdown.match(/^#\s+(.+)/m)
   return match ? match[1].trim() : "Untitled"
 }
 
+async function findReadme(dir: string): Promise<string | null> {
+  for (const name of ["README.md", "readme.md", "index.md"]) {
+    try {
+      const p = path.join(dir, name)
+      await fs.access(p)
+      return p
+    } catch {}
+  }
+  return null
+}
+
 export async function getAllDays(): Promise<DayMeta[]> {
-  const entries = await fs.readdir(CONTENT_ROOT, { withFileTypes: true })
+  const entries = await fs.readdir(PARENT_ROOT, { withFileTypes: true })
   const days: DayMeta[] = []
 
   for (const entry of entries) {
     if (!entry.isDirectory()) continue
-    const readmePath = path.join(CONTENT_ROOT, entry.name, "README.md")
-    let content: string
-    try {
-      content = await fs.readFile(readmePath, "utf-8")
-    } catch {
-      continue
-    }
-    const title = extractTitle(content)
+    const monthDir = entry.name
+    const month = monthDir.toLowerCase()
 
-    const { month, dayNumber, slug } = slugFromDir(entry.name)
-    days.push({ slug, title, month, dayNumber, path: entry.name })
+    const dayEntries = await fs.readdir(path.join(PARENT_ROOT, monthDir), {
+      withFileTypes: true,
+    })
+
+    for (const dayEntry of dayEntries) {
+      if (!dayEntry.isDirectory()) continue
+      const dayPath = path.join(PARENT_ROOT, monthDir, dayEntry.name)
+
+      const readmePath = await findReadme(dayPath)
+      if (!readmePath) continue
+
+      const content = await fs.readFile(readmePath, "utf-8")
+      const title = extractTitle(content)
+
+      const dayNumber = parseInt(dayEntry.name.split(" ").pop() || "0", 10)
+      const slug = `${month}-day-${dayNumber}`
+
+      days.push({ slug, title, month, dayNumber, path: dayEntry.name, monthDir })
+    }
   }
 
   days.sort((a, b) => a.dayNumber - b.dayNumber)
@@ -57,25 +72,27 @@ export async function getDayBySlug(slug: string): Promise<DayContent | null> {
   const day = days.find((d) => d.slug === slug)
   if (!day) return null
 
-  const readmePath = path.join(CONTENT_ROOT, day.path, "README.md")
-  const markdown = await fs.readFile(readmePath, "utf-8")
+  const dir = path.join(PARENT_ROOT, day.monthDir, day.path)
+  const readmePath = await findReadme(dir)
+  if (!readmePath) return null
 
+  const markdown = await fs.readFile(readmePath, "utf-8")
   return { meta: day, markdown }
 }
 
-export async function getImage(slug: string, imagePath: string): Promise<Buffer | null> {
-  const day = (await getAllDays()).find((d) => d.slug === slug)
+export async function getImage(slug: string, imagePath: string): Promise<Uint8Array | null> {
+  const days = await getAllDays()
+  const day = days.find((d) => d.slug === slug)
   if (!day) return null
 
-  const fullPath = path.join(CONTENT_ROOT, day.path, imagePath)
+  const fullPath = path.join(PARENT_ROOT, day.monthDir, day.path, imagePath)
   try {
-    const buffer = await fs.readFile(fullPath)
-    return buffer
+    return await fs.readFile(fullPath)
   } catch {
     return null
   }
 }
 
 export function getContentRoot(): string {
-  return CONTENT_ROOT
+  return PARENT_ROOT
 }

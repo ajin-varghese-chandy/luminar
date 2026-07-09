@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +8,18 @@
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/9815/9815472.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-<!-- font awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+</head>
+
 <body>
 
     <header>
@@ -19,22 +28,145 @@
             <ul>
                 <li><a href="">Home</a></li>
                 <li><a href="">About</a></li>
-                <li><a href="">Projects</a></li>
-                <li><a href="">Service</a></li>
-                <li><a href="">Contact</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#service">Service</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
-        
+
     </header>
 
     <!-- about -->
-     <div class="main">
-        <div class="intro">
+    <div id="about" class="main">
+        <div data-aos="fade-up" class="intro">
             <h1>I am <span>J</span>hon <span>L</span>uke</h1>
             <h2><span>W</span>eb <span>D</span>eveloper <span>F</span>rom <span>L</span>ondon</h2>
-            <pre>I can Develop Websites For Growing Your Bussiness</pre>
+            <pre>I can Develop Websites For Growing Your Bussiness</pre> <br>
+            <a download="ajin_resume" href="files/Ajin.pdf">Hire me</a>
         </div>
-        <img src="images/hero.png" alt="hero" class="person">
-     </div>
+        <img data-aos="fade-left" src="images/hero.png" alt="hero" class="person">
+    </div>
+    <!-- projects -->
+    <div id="projects">
+        <h3>
+            <i class="fa-solid fa-laptop" style="color: rgb(69, 19, 116);"></i> Projects
+        </h3>
+        <div data-aos="zoom-in" class="gallery">
+            <img data-aos="fade-up"
+                src="https://blog.hyperiondev.com/wp-content/uploads/2018/09/Blog-Article-MERN-Stack.jpg" alt="">
+            <img data-aos="fade-up"
+                src="https://blog.hyperiondev.com/wp-content/uploads/2018/09/Blog-Article-MERN-Stack.jpg" alt="">
+            <img data-aos="fade-up"
+                src="https://blog.hyperiondev.com/wp-content/uploads/2018/09/Blog-Article-MERN-Stack.jpg" alt="">
+            <img data-aos="fade-up"
+                src="https://blog.hyperiondev.com/wp-content/uploads/2018/09/Blog-Article-MERN-Stack.jpg" alt="">
+        </div>
+    </div>
+    <!-- service -->
+    <div id="service">
+        <h3>
+            <i class="fa-regular fa-handshake" style="color: rgb(60, 30, 144);"></i> Service
+        </h3>
+        <div data-aos="zoom-in" class="row">
+            <!-- From Uiverse.io by dylanharriscameron -->
+            <div data-aos="fade-up" class="card">
+                <div class="bg">
+                    <div class="box">
+                        <img src="https://img.icons8.com/external-flaticons-flat-flat-icons/1200/external-front-end-computer-programming-flaticons-flat-flat-icons.jpg"
+                            alt="">
+                        <h5>Frontend</h5>
+                        <p>Lorem ipsum dolor sit amet. Laborum numquam, doloremque corrupti magnam velit aperiam nobis
+                            fugiat! Libero enim ullam porro odit soluta ut quam modi sint expedita.
+                            Nostrum molestiae, tempora consectetur ab ipsum quibusdam doloribus aliquam distinctio
+                            fugiat corporis maxime tempore itaque dignissimos quidem pariatur, magnam ducimus earum
+                            voluptate necessitatibus impedit cumque libero labore! Dolorem, porro dolore.</p>
+                    </div>
+
+                </div>
+                <div class="blob"></div>
+            </div>
+
+            <div data-aos="fade-up" class="card">
+                <div class="bg">
+                    <div class="box">
+                        <img src="https://img.icons8.com/external-flaticons-flat-flat-icons/1200/external-front-end-computer-programming-flaticons-flat-flat-icons.jpg"
+                            alt="">
+                        <h5>Frontend</h5>
+                        <p>Lorem ipsum dolor sit amet. Laborum numquam, doloremque corrupti magnam velit aperiam nobis
+                            fugiat! Libero enim ullam porro odit soluta ut quam modi sint expedita.
+                            Nostrum molestiae, tempora consectetur ab ipsum quibusdam doloribus aliquam distinctio
+                            fugiat corporis maxime tempore itaque dignissimos quidem pariatur, magnam ducimus earum
+                            voluptate necessitatibus impedit cumque libero labore! Dolorem, porro dolore.</p>
+                    </div>
+
+                </div>
+                <div class="blob"></div>
+            </div>
+
+            <div data-aos="fade-up" class="card">
+                <div class="bg">
+                    <div class="box">
+                        <img src="https://img.icons8.com/external-flaticons-flat-flat-icons/1200/external-front-end-computer-programming-flaticons-flat-flat-icons.jpg"
+                            alt="">
+                        <h5>Frontend</h5>
+                        <p>Lorem ipsum dolor sit amet. Laborum numquam, doloremque corrupti magnam velit aperiam nobis
+                            fugiat! Libero enim ullam porro odit soluta ut quam modi sint expedita.
+                            Nostrum molestiae, tempora consectetur ab ipsum quibusdam doloribus aliquam distinctio
+                            fugiat corporis maxime tempore itaque dignissimos quidem pariatur, magnam ducimus earum
+                            voluptate necessitatibus impedit cumque libero labore! Dolorem, porro dolore.</p>
+                    </div>
+
+                </div>
+                <div class="blob"></div>
+            </div>
+
+            <div data-aos="fade-up" class="card">
+                <div class="bg">
+                    <div class="box">
+                        <img src="https://img.icons8.com/external-flaticons-flat-flat-icons/1200/external-front-end-computer-programming-flaticons-flat-flat-icons.jpg"
+                            alt="">
+                        <h5>Frontend</h5>
+                        <p>Lorem ipsum dolor sit amet. Laborum numquam, doloremque corrupti magnam velit aperiam nobis
+                            fugiat! Libero enim ullam porro odit soluta ut quam modi sint expedita.
+                            Nostrum molestiae, tempora consectetur ab ipsum quibusdam doloribus aliquam distinctio
+                            fugiat corporis maxime tempore itaque dignissimos quidem pariatur, magnam ducimus earum
+                            voluptate necessitatibus impedit cumque libero labore! Dolorem, porro dolore.</p>
+                    </div>
+
+                </div>
+                <div class="blob"></div>
+            </div>
+
+        </div>
+    </div>
+    <div id="contact">
+        <h3>
+            <i class="fa-brands fa-rocketchat" style="color: rgb(60, 30, 144);"></i> Contact
+        </h3>
+        <div class="message">
+            <!-- From Uiverse.io by omriluz -->
+            <div class="form-container">
+                <form class="form">
+                    <div class="form-group">
+                        <label for="email">Name</label>
+                        <input required="" name="name" id="name" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="textarea">How Can I Help You?</label>
+                        <textarea required="" cols="50" rows="10" id="textarea" name="textarea"></textarea>
+                    </div>
+                    <button type="submit" class="form-submit-btn">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+
+    </div>
 </body>
+<script>
+    AOS.init();
+</script>
+
 </html>

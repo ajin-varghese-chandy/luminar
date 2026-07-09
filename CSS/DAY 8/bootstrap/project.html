@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GPUCloud</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="project.css">
+</head>
+<body>
+<video class="bg-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=80">
+    <source src="video.mp4" type="video/mp4">
+</video>
+<div class="bg-overlay"></div>
+
+<nav>
+    <div class="logo">GPUCloud</div>
+    <ul>
+        <li><a href="#models">GPUs</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+    </ul>
+    <button>Rent Now</button>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Rent Powerful GPUs In Seconds</h1>
+        <p>Deploy NVIDIA GPUs instantly for AI training, inference, Stable Diffusion, LLMs, video generation, and high-performance computing.</p>
+        <div class="buttons">
+            <a href="#">Rent Now</a>
+            <a href="#" class="secondary">View Pricing</a>
+        </div>
+        <div class="stats">
+            <div>
+                <h2>30+</h2>
+                <p>GPU Models</p>
+            </div>
+            <div>
+                <h2>99.9%</h2>
+                <p>Uptime</p>
+            </div>
+            <div>
+                <h2>180+</h2>
+                <p>Locations</p>
+            </div>
+        </div>
+    </div>
+    <div class="gpu-card">
+        <div class="header">
+            <h3>Available GPUs</h3>
+        </div>
+        <div class="gpu">
+            <div>
+                <h4>RTX 4090</h4>
+                <small>24GB VRAM - 32GB RAM</small>
+            </div>
+            <strong>₹59/hr</strong>
+        </div>
+        <div class="gpu">
+            <div>
+                <h4>RTX 5090</h4>
+                <small>32GB VRAM - 60GB RAM</small>
+            </div>
+            <strong>₹85/hr</strong>
+        </div>
+        <div class="gpu">
+            <div>
+                <h4>H100 SXM</h4>
+                <small>80GB VRAM - 176GB RAM</small>
+            </div>
+            <strong>₹279/hr</strong>
+        </div>
+        <div class="gpu">
+            <div>
+                <h4>B200</h4>
+                <small>180GB VRAM - 188GB RAM</small>
+            </div>
+            <strong>₹499/hr</strong>
+        </div>
+    </div>
+</section>
+
+<section class="models" id="models">
+    <div class="models-header">
+        <h2>GPU Models</h2>
+        <p>From consumer-grade to enterprise data-center GPUs for every workload.</p>
+    </div>
+    <div class="models-grid">
+        <div class="model-card">
+            <div class="model-img" style="background-image:url(https://tpucdn.com/gpu-specs/images-new/c/3889-front-large.jpg)"></div>
+            <div class="model-body">
+                <h3>NVIDIA RTX 4090</h3>
+                <div class="model-specs">
+                    <span>24GB GDDR6X</span>
+                    <span>16384 CUDA</span>
+                    <span>450W TDP</span>
+                </div>
+                <p>Ideal for gaming, 3D rendering, and entry-level AI inference.</p>
+                <div class="model-price">From <strong>₹59</strong> /hr</div>
+                <a href="#">Rent Now</a>
+            </div>
+        </div>
+        <div class="model-card">
+            <div class="model-img" style="background-image:url(https://tpucdn.com/gpu-specs/images-new/c/4216-front-large.jpg)"></div>
+            <div class="model-body">
+                <h3>NVIDIA RTX 5090</h3>
+                <div class="model-specs">
+                    <span>32GB GDDR7</span>
+                    <span>21760 CUDA</span>
+                    <span>575W TDP</span>
+                </div>
+                <p>Next-gen architecture for demanding creative and ML workloads.</p>
+                <div class="model-price">From <strong>₹85</strong> /hr</div>
+                <a href="#">Rent Now</a>
+            </div>
+        </div>
+        <div class="model-card">
+            <div class="model-img" style="background-image:url(https://tpucdn.com/gpu-specs/images-new/c/3900-front-large.jpg)"></div>
+            <div class="model-body">
+                <h3>NVIDIA H100 SXM</h3>
+                <div class="model-specs">
+                    <span>80GB HBM3</span>
+                    <span>18432 CUDA</span>
+                    <span>700W TDP</span>
+                </div>
+                <p>The gold standard for LLM training and large-scale AI.</p>
+                <div class="model-price">From <strong>₹279</strong> /hr</div>
+                <a href="#">Rent Now</a>
+            </div>
+        </div>
+        <div class="model-card">
+            <div class="model-img" style="background-image:url(https://tpucdn.com/gpu-specs/images-new/c/4210-front-large.jpg)"></div>
+            <div class="model-body">
+                <h3>NVIDIA B200</h3>
+                <div class="model-specs">
+                    <span>180GB HBM3e</span>
+                    <span>26600 CUDA</span>
+                    <span>1000W TDP</span>
+                </div>
+                <p>Flagship Blackwell for trillion-parameter model training.</p>
+                <div class="model-price">From <strong>₹499</strong> /hr</div>
+                <a href="#">Rent Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features" id="features">
+    <div class="features-header">
+        <h2>Features</h2>
+        <p>Everything you need to ship models faster without infrastructure headaches.</p>
+    </div>
+    <div class="features-grid">
+        <div class="feature-card">
+            <h3>Instant Provisioning</h3>
+            <p>Launch any GPU in under 30 seconds with pre-installed PyTorch, TensorFlow, CUDA, and Docker.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Secure Cloud</h3>
+            <p>Enterprise-grade encryption, isolated tenancy, and SOC 2 compliance across all regions.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Global Edge</h3>
+            <p>180+ data centers worldwide. Deploy close to your users for low-latency inference.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Flexible Pricing</h3>
+            <p>Pay by the second with no upfront commitment. Reserved instances save up to 60%.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Team Workspaces</h3>
+            <p>Collaborate with your team. Share GPU instances, datasets, and model checkpoints.</p>
+        </div>
+        <div class="feature-card">
+            <h3>24/7 Support</h3>
+            <p>Expert infrastructure engineers available around the clock via chat, email, or phone.</p>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="pricing" id="pricing">
+    <div class="pricing-header">
+        <h2>Pricing</h2>
+        <p>No hidden fees. Pay only for what you use with per-second billing.</p>
+    </div>
+    <div class="pricing-grid">
+        <div class="plan">
+            <h3>Starter</h3>
+            <p class="plan-desc">For individual developers and small projects.</p>
+            <div class="plan-price"><sup>₹</sup><strong>50</strong><small>/hr</small></div>
+            <ul>
+                <li>RTX 4090 access</li>
+            </ul>
+            <a href="#">Rent Now</a>
+        </div>
+        <div class="plan popular">
+            <div class="popular-badge">Most Popular</div>
+            <h3>Pro</h3>
+            <p class="plan-desc">For teams and production workloads.</p>
+            <div class="plan-price"><sup>₹</sup><strong>100</strong><small>/hr</small></div>
+            <ul>
+                <li>All GPU models including H100</li>
+            </ul>
+            <a href="#">Rent Now</a>
+        </div>
+        <div class="plan">
+            <h3>Enterprise</h3>
+            <p class="plan-desc">For organizations at scale.</p>
+            <div class="plan-price"><sup>₹</sup><strong>150</strong><small>/hr</small></div>
+            <ul>
+                <li>All GPU models including B200</li>
+            </ul>
+            <a href="#" class="plan-cta">Contact Sales</a>
+        </div>
+    </div>
+</section>
+
+<section class="testimonials" id="reviews">
+    <div class="testimonials-header">
+        <h2>Reviews</h2>
+        <p>See what engineers and companies say about GPUCloud.</p>
+    </div>
+    <div class="testimonials-grid">
+        <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"GPUCloud cut our training time by 80%. We went from waiting days to hours. The H100 cluster is an absolute beast."</p>
+            <div class="author">
+                <div class="author-avatar" style="background-image:url(https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80)"></div>
+                <div>
+                    <strong>Alex Chen</strong>
+                    <span>ML Engineer at ScaleAI</span>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"The instant provisioning is incredible. I can spin up a 4090 for Blender renders in under 30 seconds. Game changer."</p>
+            <div class="author">
+                <div class="author-avatar" style="background-image:url(https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80)"></div>
+                <div>
+                    <strong>Sarah Miller</strong>
+                    <span>3D Artist, Freelance</span>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"We run our entire LLM inference pipeline on GPUCloud. 99.9% uptime and the global edge nodes keep latency minimal."</p>
+            <div class="author">
+                <div class="author-avatar" style="background-image:url(https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80)"></div>
+                <div>
+                    <strong>James Park</strong>
+                    <span>CTO, SynthAI</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <h2>Rent Now</h2>
+    <p>Join 50,000+ engineers and companies already using GPUCloud.</p>
+    <div class="cta-buttons">
+        <a href="#">Rent Now</a>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-logo">GPUCloud</div>
+        <div class="footer-links">
+            <a href="#">About</a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+        </div>
+        
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+body{
+
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.form-card{
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.card-header{
+    padding:20px;
+}
+
+.card-header h3{
+    margin:0;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.form-control,
+.form-select{
+    background:#eeeeee;
+    border:none;
+    height:45px;
+}
+
+.form-control:focus,
+.form-select:focus{
+    box-shadow:none;
+    background:#eeeeee;
+}
+
+label{
+    font-weight:bold;
+}
+
+small{
+    color:gray;
+}
+
+.btn-danger{
+    background:#ff4d5a;
+    border:none;
+    padding:10px 40px;
+    font-weight:bold;
+}
+
+.btn-danger:hover{
+    background:#ff3344;
+}

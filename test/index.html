@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kerala Kitchen</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!--  NAVBAR  -->
+  <nav id="main-nav" class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+
+      <a href="#" class="navbar-brand flex items-center gap-2">
+      <img width="60px" height="60px" src="https://png.pngtree.com/png-vector/20250910/ourmid/pngtree-restaurant-logo-with-chef-hat-and-fork-spoon-symbol-png-image_17398231.webp" alt="" srcset="">
+        <span class="nav-brand-name">Kerala Kitchen</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navLinks">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <nav class="mb-2" >
+        <ul
+          class="font-medium flex flex-col p-1 md:p-0 mt-4 rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary">
+          <li>
+            <a href="#"
+              class=" text-white block py-1 px-1 text-white bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0"
+              aria-current="page">Home</a>
+          </li>
+          <li>
+            <a href="#menu"
+              class="  text-white block py-1 px-2 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Menu</a>
+          </li>
+          <li>
+            <a href="#reservation"
+              class="  text-white block py-1 px-1 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Reservation</a>
+          </li>
+          <li>
+            <a href="#reviews"
+              class="  text-white block py-1 px-1 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Reviews</a>
+          </li>
+          <li>
+            <a href="#gallery"
+              class="  text-white block py-1 px-1 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Gallery</a>
+          </li>
+        </ul>
+      </nav>
+
+    </div>
+
+    </div>
+  </nav>
+
+
+  <!--  HERO  -->
+  <section id="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>God's Own Food,<br><span>Kerala Flavours</span></h1>
+      <p>Authentic Kerala cuisine made with love and traditional spices every single day.</p>
+      <div>
+        <a href="#menu" class="btn-gold">Menu</a>
+        <a href="#" class="btn-outline-white" data-bs-toggle="modal" data-bs-target="#bookingModal">Book a Table</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- STATS STRIP  -->
+  <section id="about">
+    <div class="container m-5">
+      <div class="row text-center">
+        <div class="col-6 col-md-3">
+          <div class="stat-item">
+            <span class="num">15+</span>
+            <span class="lbl">Years Open</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-item">
+            <span class="num">30+</span>
+            <span class="lbl">Kerala Dishes</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-item">
+            <span class="num">40k+</span>
+            <span class="lbl">Happy Guests</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-item">
+            <span class="num">4.9</span>
+            <span class="lbl">Average Rating</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!--  MENU  -->
+  <section id="menu">
+    <div class="container">
+
+      <div class="sec-header">
+        <h2>Menu</h2>
+        <p>Traditional Kerala dishes made from scratch with locally sourced ingredients and authentic spices.</p>
+      </div>
+
+
+
+      <div class="row g-4" id="menu-grid">
+
+        <!-- Card 1 -->
+        <div class="col-sm-6 col-lg-4 menu-item" data-cat="starters">
+          <div class="menu-card">
+            <div class="menu-img-wrap">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Sadhya_DSW.jpg" alt="Kerala Sadya" />
+            
+            </div>
+            <div class="menu-card-body">
+              <h5>Kerala Sadya</h5>
+              <p>Traditional vegetarian feast with rice, sambar, avial, thoran, pickles, and payasam served on a banana leaf.</p>
+              <div class="menu-card-footer">
+                <span class="menu-price">₹1,299</span>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-sm-6 col-lg-4 menu-item" data-cat="starters">
+          <div class="menu-card">
+            <div class="menu-img-wrap">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpQ9iebpaVeDElY08vzpJ4pBHzSpoztRRd5MLaPo0aWzdLgmjyGUUfX-cd&s=10" alt="Appam with Curry" />
+              
+            </div>
+            <div class="menu-card-body">
+              <h5>Appam with Stew</h5>
+              <p>Bowl-shaped rice pancake made with fermented batter and coconut milk, paired with creamy vegetable or chicken stew.</p>
+              <div class="menu-card-footer">
+                <span class="menu-price">₹599</span>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-sm-6 col-lg-4 menu-item" data-cat="mains">
+          <div class="menu-card">
+            <div class="menu-img-wrap">
+              <img src="https://media.sailusfood.com/wp-content/uploads/2012/12/puttu-kadala-kerala-vegetarian-recipes.jpg" alt="Puttu with Kadala Curry" />
+              
+            </div>
+            <div class="menu-card-body">
+              <h5>Puttu Kadala Curry</h5>
+              <p>Steamed cylinders of ground rice layered with coconut, served with spicy black chickpea curry and ripe banana.</p>
+              <div class="menu-card-footer">
+                <span class="menu-price">₹499</span>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="col-sm-6 col-lg-4 menu-item" data-cat="mains">
+          <div class="menu-card">
+            <div class="menu-img-wrap">
+              <img src="https://foodgood.in/wp-content/uploads/2025/06/Karimeen-Pollichathu-500x500.jpg" />
+              <span class="menu-badge">Specialty</span>
+            </div>
+            <div class="menu-card-body">
+              <h5>Karimeen Pollichathu</h5>
+              <p>Pearl spot fish marinated in traditional spices, wrapped in banana leaf and grilled to perfection.</p>
+              <div class="menu-card-footer">
+                <span class="menu-price">₹899</span>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="col-sm-6 col-lg-4 menu-item" data-cat="mains">
+          <div class="menu-card">
+            <div class="menu-img-wrap">
+              <img src="https://www.maggi.in/sites/default/files/styles/srh_recipes/public/srh_recipes/83100cde6b3045cdce27048211f14019.jpg?h=4f5b30f1&itok=hrD4cQhe" alt="Malabar Biryani" />
+              <span class="menu-badge">Mains</span>
+            </div>
+            <div class="menu-card-body">
+              <h5>Malabar Biryani</h5>
+              <p>Aromatic kaima rice layered with spiced chicken, caramelised onions and 15 locally sourced Malabar spices.</p>
+              <div class="menu-card-footer">
+                <span class="menu-price">₹799</span>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="col-sm-6 col-lg-4 menu-item" data-cat="desserts">
+          <div class="menu-card">
+            <div class="menu-img-wrap">
+              <img src="https://www.yummytummyaarthi.com/wp-content/uploads/2022/08/palada-payasam-1.jpeg" alt="Palada Payasam" />
+            
+            </div>
+            <div class="menu-card-body">
+              <h5>Palada Payasam</h5>
+              <p>Traditional Kerala dessert made with rice flakes simmered in sweetened milk, ghee, and garnished with cashews and raisins.</p>
+              <div class="menu-card-footer">
+                <span class="menu-price">₹349</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- RESERVATION  -->
+  <section id="reservation">
+    <div class="res-overlay"></div>
+    <div class="container res-wrap">
+
+      <div class="sec-header">
+        <h2>Book a Table</h2>
+        <p>Reserve your spot for an authentic Kerala dining experience.</p>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="res-form-box">
+            <form id="reservationForm" onsubmit="submitReservation(event)" novalidate>
+              <div class="row g-3">
+
+                <div class="col-md-6">
+                  <label class="res-label" for="r-name">Full Name</label>
+                  <input type="text" id="r-name" class="res-input" placeholder="John Smith" required />
+                </div>
+
+                <div class="col-md-6">
+                  <label class="res-label" for="r-email">Email</label>
+                  <input type="email" id="r-email" class="res-input" placeholder="john@email.com" required />
+                </div>
+
+                <div class="col-md-4">
+                  <label class="res-label" for="r-date">Date</label>
+                  <input type="date" id="r-date" class="res-input" required />
+                </div>
+
+                <div class="col-md-4">
+                  <label class="res-label" for="r-time">Time</label>
+                  <select id="r-time" class="res-input" required>
+                    <option value="">Select time</option>
+                    <option>5:30 PM</option>
+                    <option>6:00 PM</option>
+                    <option>6:30 PM</option>
+                    <option>7:00 PM</option>
+                    <option>7:30 PM</option>
+                    <option>8:00 PM</option>
+                    <option>8:30 PM</option>
+                    <option>9:00 PM</option>
+                  </select>
+                </div>
+
+                <div class="col-md-4">
+                  <label class="res-label" for="r-guests">Guests</label>
+                  <select id="r-guests" class="res-input" required>
+                    <option value="">Select</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6+</option>
+                  </select>
+                </div>
+
+                <div class="col-12">
+                  <label class="res-label" for="r-notes">Special Requests</label>
+                  <textarea id="r-notes" class="res-input" rows="3"
+                    placeholder="Dietary needs, seating preferences..."></textarea>
+                </div>
+
+                <div class="col-12 mt-2">
+                  <button type="submit" class="btn-gold w-100">Confirm Reservation</button>
+                </div>
+
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!--  REVIEWS  -->
+  <section id="reviews">
+    <div class="container">
+
+      <div class="sec-header">
+        <h2>Reviews</h2>
+      </div>
+
+      <div class="row g-4">
+
+        <div class="col-md-4">
+          <div class="review-card">
+            <span class="stars">★★★★★</span>
+            <p class="review-text">"The Malabar Biryani was the best I've ever had. The staff were friendly and the
+              atmosphere was just perfect. We'll definitely come back for the Sadya."</p>
+            <hr style="border-color: #eee;" />
+            <p class="reviewer-name">Marcus & Elena</p>
+            <p class="reviewer-info">Kozhikode &bull; October 2024</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="review-card">
+            <span class="stars">★★★★★</span>
+            <p class="review-text">"The Karimeen Pollichathu was incredible — perfectly spiced and wrapped in banana leaf. Better than anything I've tried in Kerala!"</p>
+            <hr style="border-color: #eee;" />
+            <p class="reviewer-name">Sophie B.</p>
+            <p class="reviewer-info">Food Writer &bull; Kochi & Mumbai</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="review-card">
+            <span class="stars">★★★★☆</span>
+            <p class="review-text">"We celebrated Onam here. The team laid out a beautiful Sadya on banana leaf with all the traditional dishes — it made us feel right at home."</p>
+            <hr style="border-color: #eee;" />
+            <p class="reviewer-name">David Okafor</p>
+            <p class="reviewer-info">Trivandrum &bull; September 2024</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!--  GALLERY  -->
+  <section id="gallery">
+    <div class="container">
+
+      <div class="sec-header">
+        <h2>A Taste of Kerala</h2>
+        <p>From the kitchen to the banana leaf — a peek at our authentic Kerala cuisine.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqpEsMOfHdZm-PzdfYuV9ClH7TGAwoKhs8aY_A8LMfXkc-nBhAkhVCBhsk&s=10"
+            alt="" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://blog.swiggy.com/wp-content/uploads/2024/09/Image-1_Idiyappam-with-Curry-1024x538.png" alt="" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEL8UBW1ZQn-Z_ho1cVeu2xnhWfGQ9JOoxqNcU-02EDUL0IPrHzu41zvg&s=10" alt="Kerala Drink" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://caleidoscope.in/wp-content/uploads/2024/09/Sweet-Dishes-of-Kerala-0.jpg" alt="" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://www.keralatourism.org/_next/image/?url=http%3A%2F%2F127.0.0.1%2Fktadmin%2Fimg%2Fpages%2Flarge-desktop%2Ftribal-cuisine-1715600986_88fa07845df055e04d7f.webp&w=3840&q=75" alt="Dessert" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://clubmahindra.gumlet.io/blog/images/Kozhukatta-resized.jpg?w=376&dpr=2.6" alt="Food" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7rqhOcFilmLGH5zzIejIII-IlHwwYuTc9DeRB_Y1hjyK5viIffmw7VZ_K&s=10" alt="Food" />
+        </div>
+ 
+        <div class="gallery-item">
+          <img src="https://i.pinimg.com/736x/72/c4/09/72c4097f2ed24eaf1110a596ebd14e51.jpg" alt="Food" />
+        </div>
+ 
+        <div class="gallery-item">
+          <img src="https://static.wixstatic.com/media/9b44ed_79cb37e8332f48cb841ab024f4fe1c39~mv2.jpg/v1/fill/w_568,h_806,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/9b44ed_79cb37e8332f48cb841ab024f4fe1c39~mv2.jpg" alt="Food" />
+        </div>
+ 
+        <div class="gallery-item">
+          <img src="https://www.swantour.com/blogs/wp-content/uploads/2019/04/Appam.jpg" alt="Food" />
+        </div>
+ <div class="gallery-item">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzhkQQUSauqx7mU1HteBdzoGIymWgvZaZZzjrEitorVpRaoCtBYgddhGk&s=10" alt="Food" />
+        </div>
+ 
+        <div class="gallery-item">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpRc4FcNyx3sH5aCFjtqC7o1OqODZP91zJD5eEQE5RHQ&s=10" alt="Food" />
+        </div>
+ 
+      </div>
+      
+
+    </div>
+  </section>
+
+
+  <!-- ======= FOOTER ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="row g-4">
+
+        <!-- Brand -->
+        <div class="col-lg-4">
+          <p class="footer-brand">Kerala Kitchen</p>
+          <p class="footer-about">A family restaurant serving authentic Kerala cuisine since 2009. Good food, good people.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div class="col-sm-6 col-lg-2">
+          <p class="footer-heading">Pages</p>
+          <a href="#hero" class="footer-link">Home</a>
+          <a href="#menu" class="footer-link">Menu</a>
+          <a href="#reservation" class="footer-link">Reservation</a>
+          <a href="#reviews" class="footer-link">Reviews</a>
+          <a href="#gallery" class="footer-link">Gallery</a>
+        </div>
+
+        <!-- Hours -->
+        <div class="col-sm-6 col-lg-3">
+          <p class="footer-heading">Hours</p>
+          <p class="footer-text">
+            Mon – Tue: Closed<br>
+            Wed – Thu: 5:30 – 10 PM<br>
+            Fri – Sat: 5:00 – 11 PM<br>
+            Sunday: 5:00 – 9 PM
+          </p>
+        </div>
+
+        <!-- Contact -->
+        <div class="col-lg-3">
+          <p class="footer-heading">Contact</p>
+          <p class="footer-text">
+            <i class="bi bi-geo-alt" style="color:#e5a535;"></i>
+            342 MG Road, Fort Kochi, Kerala<br><br>
+            <i class="bi bi-telephone" style="color:#e5a535;"></i>
+            +91 484 555 0192<br><br>
+            <i class="bi bi-envelope" style="color:#e5a535;"></i>
+            hello@keralarestaurant.com
+          </p>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Kerala Restaurant. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ======= BOOKING MODAL ======= -->
+  <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title" id="bookingModalLabel">
+            <i class="bi bi-calendar-check me-2" style="color:#e5a535;"></i>
+            Reserve a Table - Kerala Kitchen
+          </h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          <form id="modalForm" onsubmit="submitModal(event)" novalidate>
+            <div class="row g-3">
+
+              <div class="col-md-6">
+                <label class="res-label">Full Name</label>
+                <input type="text" class="res-input" placeholder="John Smith" required />
+              </div>
+
+              <div class="col-md-6">
+                <label class="res-label">Email</label>
+                <input type="email" class="res-input" placeholder="john@email.com" required />
+              </div>
+
+              <div class="col-md-6">
+                <label class="res-label">Phone</label>
+                <input type="tel" class="res-input" placeholder="+1 (415) 000-0000" />
+              </div>
+
+              <div class="col-md-6">
+                <label class="res-label">Occasion</label>
+                <select class="res-input">
+                  <option value="">Select (optional)</option>
+                  <option>Birthday</option>
+                  <option>Anniversary</option>
+                  <option>Business Dinner</option>
+                  <option>Date Night</option>
+                </select>
+              </div>
+
+              <div class="col-md-4">
+                <label class="res-label">Date</label>
+                <input type="date" class="res-input" required />
+              </div>
+
+              <div class="col-md-4">
+                <label class="res-label">Time</label>
+                <select class="res-input" required>
+                  <option value="">Select</option>
+                  <option>5:30 PM</option>
+                  <option>6:00 PM</option>
+                  <option>6:30 PM</option>
+                  <option>7:00 PM</option>
+                  <option>7:30 PM</option>
+                  <option>8:00 PM</option>
+                  <option>8:30 PM</option>
+                  <option>9:00 PM</option>
+                </select>
+              </div>
+
+              <div class="col-md-4">
+                <label class="res-label">Party Size</label>
+                <select class="res-input" required>
+                  <option value="">Guests</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6+</option>
+                </select>
+              </div>
+
+              <div class="col-12">
+                <label class="res-label">Notes</label>
+                <textarea class="res-input" rows="2" placeholder="Allergies, seating preferences..."></textarea>
+              </div>
+
+            </div>
+          </form>
+        </div>
+
+        <div class="modal-footer justify-content-between">
+          <small style="color:#666;">We'll confirm your booking via email within 2 hours.</small>
+          <div class="d-flex gap-2">
+            <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" form="modalForm" class="btn-gold" style="padding: 8px 20px; font-size:0.85rem;">
+              Confirm Booking
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>

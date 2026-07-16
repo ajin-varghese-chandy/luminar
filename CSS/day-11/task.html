@@ -1,0 +1,609 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEO·TOKYO</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- <style>
+        .slice-wrap {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .slice-wrap::before,
+        .slice-wrap::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            z-index: 2;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-image: inherit;
+            transition: transform 0.5s cubic-bezier(0.77, 0, 0.18, 1);
+            pointer-events: none;
+        }
+        .slice-wrap::before {
+            top: 0;
+            background-position: top center;
+        }
+        .slice-wrap::after {
+            bottom: 0;
+            background-position: bottom center;
+        }
+        .slice-wrap:hover::before {
+            transform: translateY(-100%);
+        }
+        .slice-wrap:hover::after {
+            transform: translateY(100%);
+        }
+        .slice-wrap:hover img {
+            opacity: 0;
+        }
+        .slice-wrap .slice-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(135deg, #0dcaf0, #dc3545);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .slice-wrap:hover .slice-bg {
+            opacity: 0.8;
+        }
+        .slice-wrap img {
+            position: relative;
+            z-index: 0;
+            display: block;
+            transition: opacity 0.4s ease;
+        }
+    </style> -->
+</head>
+<body class="bg-black text-light">
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top border-bottom border-info" data-aos="fade-down">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4" href="#">
+                <span class="text-light">NEO</span><span class="text-info">·</span>TOKYO
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto gap-2">
+                    <li class="nav-item"><a class="nav-link text-info active" href="#hero">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="#districts">Districts</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="#pricing">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="#faq">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section id="hero" class="min-vh-100 d-flex align-items-center bg-dark position-relative overflow-hidden">
+        <div class="container position-relative z-1">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-7" data-aos="fade-right" data-aos-duration="1000">
+                    <span class="badge bg-black text-info border border-info mb-3 text-uppercase small">Welcome to 2087</span>
+                    <h1 class="display-3 fw-bold text-white">NEO·TOKYO</h1>
+                    <p class="fs-5 text-secondary mb-4" style="max-width:540px;">
+                        Where neon dreams wire into reality. Explore the city's cyber-enhanced districts,
+                        hacker-safe services, and underground networks.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#districts" class="btn btn-outline-info btn-lg">Explore Grid</a>
+                        <a href="#contact" class="btn btn-outline-danger btn-lg">Join Network</a>
+                    </div>
+                    <div class="d-flex gap-4 mt-5">
+                        <div><span class="fw-bold text-info fs-3">12M</span><br><small class="text-secondary">Citizens</small></div>
+                        <div><span class="fw-bold text-danger fs-3">7</span><br><small class="text-secondary">Districts</small></div>
+                        <div><span class="fw-bold text-info fs-3">99%</span><br><small class="text-secondary">Connectivity</small></div>
+                    </div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block" data-aos="fade-left" data-aos-duration="1000">
+                    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+                            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+                        </div>
+                        <div class="carousel-inner rounded border border-info">
+                            <div class="carousel-item active">
+                                <div class="slice-wrap" style="background-image:url('https://images.unsplash.com/photo-1752070509177-2406459f6a0a?w=600&h=400&fit=crop')">
+                                    <div class="slice-bg"></div>
+                                    <img src="https://images.unsplash.com/photo-1752070509177-2406459f6a0a?w=600&h=400&fit=crop" class="d-block w-100" alt="Neon City">
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="slice-wrap" style="background-image:url('https://images.unsplash.com/photo-1752070485313-71ac5e594ad0?w=600&h=400&fit=crop')">
+                                    <div class="slice-bg"></div>
+                                    <img src="https://images.unsplash.com/photo-1752070485313-71ac5e594ad0?w=600&h=400&fit=crop" class="d-block w-100" alt="Cyber Street">
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="slice-wrap" style="background-image:url('https://images.unsplash.com/photo-1732704895089-ec0e78d7ce91?w=600&h=400&fit=crop')">
+                                    <div class="slice-bg"></div>
+                                    <img src="https://images.unsplash.com/photo-1732704895089-ec0e78d7ce91?w=600&h=400&fit=crop" class="d-block w-100" alt="Night City">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== DISTRICTS ===== -->
+    <section id="districts" class="py-5 bg-black">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="display-5 fw-bold text-white">City Districts</h2>
+                <p class="text-secondary fs-5">Each sector operates under its own protocols.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="card bg-dark text-light h-100 p-4 text-center border-info">
+                        <div class="bg-black text-info d-inline-flex align-items-center justify-content-center rounded mb-3 mx-auto" style="width:70px;height:70px;font-size:2rem;border:1px solid rgba(13,202,240,0.3);">S</div>
+                        <h5 class="fw-bold text-white">SHIBUYA-Ω</h5>
+                        <span class="badge bg-black text-info border border-info align-self-center mb-2">Population: 3.2M</span>
+                        <p class="text-secondary small">Neon core — corporate towers, augmented reality billboards, 24/7 night markets.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="card bg-dark text-light h-100 p-4 text-center border-secondary">
+                        <div class="bg-black text-danger d-inline-flex align-items-center justify-content-center rounded mb-3 mx-auto" style="width:70px;height:70px;font-size:2rem;border:1px solid rgba(220,53,69,0.3);">U</div>
+                        <h5 class="fw-bold text-white">SHINJUKU-B</h5>
+                        <span class="badge bg-black text-info border border-info align-self-center mb-2">Population: 2.8M</span>
+                        <p class="text-secondary small">Underground bazaar — black market chrome, illegal neuro-software, back-alley docs.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="card bg-dark text-light h-100 p-4 text-center border-warning">
+                        <div class="bg-black text-warning d-inline-flex align-items-center justify-content-center rounded mb-3 mx-auto" style="width:70px;height:70px;font-size:2rem;border:1px solid rgba(255,193,7,0.3);">E</div>
+                        <h5 class="fw-bold text-white">EDEN-DOME</h5>
+                        <span class="badge bg-black text-info border border-info align-self-center mb-2">Population: 1.1M</span>
+                        <p class="text-secondary small">Bio-dome paradise — vertical gardens, clean air, organic food, no chrome allowed.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="card bg-dark text-light h-100 p-4 text-center border-primary">
+                        <div class="bg-black text-primary d-inline-flex align-items-center justify-content-center rounded mb-3 mx-auto" style="width:70px;height:70px;font-size:2rem;border:1px solid rgba(13,110,253,0.3);">T</div>
+                        <h5 class="fw-bold text-white">THE SPIRE</h5>
+                        <span class="badge bg-black text-info border border-info align-self-center mb-2">Population: 0.4M</span>
+                        <p class="text-secondary small">Elite arcology — AI governance, quantum core, only the upper 1% gets access.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES with PROGRESS ===== -->
+    <section id="services" class="py-5 bg-dark">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="display-5 fw-bold text-white">Service</h2>
+                <p class="text-secondary fs-5">City-wide infrastructure reliability metrics.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="card bg-black text-light p-4 h-100 border-info">
+                        <h5 class="fw-bold text-white mb-4">Network Grid</h5>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span>Quantum Internet</span>
+                                <span class="text-info">98%</span>
+                            </div>
+                            <div class="progress" role="progressbar" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar bg-info" style="width:98%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span>Mesh Relay</span>
+                                <span class="text-info">87%</span>
+                            </div>
+                            <div class="progress" role="progressbar" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar bg-info" style="width:87%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span>DarkNet Access</span>
+                                <span class="text-info">73%</span>
+                            </div>
+                            <div class="progress" role="progressbar" aria-valuenow="73" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar bg-info" style="width:73%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-0">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span>Sat Uplink</span>
+                                <span class="text-info">91%</span>
+                            </div>
+                            <div class="progress" role="progressbar" aria-valuenow="91" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar bg-info" style="width:91%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="card bg-black text-light p-4 h-100 border-warning">
+                        <h5 class="fw-bold text-white mb-4">City Utilities</h5>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span>Fusion Power</span>
+                                <span class="text-warning">94%</span>
+                            </div>
+                            <div class="progress" role="progressbar" aria-valuenow="94" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar bg-warning" style="width:94%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1">q
+                                <span>Water Recycling</span>
+                                <span class="text-warning">89%</span>
+                            </div>
+                            <div class="progress" role="progressbar" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar bg-warning" style="width:89%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span>Waste Processing</span>
+                                <span class="text-warning">76%</span>
+                            </div>
+                            <div class="progress" role="progressbar" aria-valuenow="76" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar bg-warning" style="width:76%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-0">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span>Air Filtration</span>
+                                <span class="text-warning">96%</span>
+                            </div>
+                            <div class="progress" role="progressbar" aria-valuenow="96" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar bg-warning" style="width:96%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-5" data-aos="fade-up">
+                <h5 class="fw-bold text-white mb-3">Service Status</h5>
+                <div class="table-responsive">
+                    <table class="table table-dark table-bordered border-secondary">
+                        <thead>
+                            <tr class="table-active">
+                                <th class="text-info">Service</th>
+                                <th class="text-info">District</th>
+                                <th class="text-info">Status</th>
+                                <th class="text-info">Response</th>
+                                <th class="text-info">Priority</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Neuro-Link</td>
+                                <td>Shibuya-Ω</td>
+                                <td><span class="badge bg-success">Online</span></td>
+                                <td>12ms</td>
+                                <td><span class="badge bg-info text-dark">Critical</span></td>
+                            </tr>
+                            <tr>
+                                <td>Chrome Forge</td>
+                                <td>Shinjuku-B</td>
+                                <td><span class="badge bg-warning text-dark">Degraded</span></td>
+                                <td>48ms</td>
+                                <td><span class="badge bg-info text-dark">High</span></td>
+                            </tr>
+                            <tr>
+                                <td>Bio-Synth</td>
+                                <td>Eden-Dome</td>
+                                <td><span class="badge bg-success">Online</span></td>
+                                <td>8ms</td>
+                                <td><span class="badge bg-info text-dark">Critical</span></td>
+                            </tr>
+                            <tr>
+                                <td>Quantum Core</td>
+                                <td>The Spire</td>
+                                <td><span class="badge bg-danger">Offline</span></td>
+                                <td>--</td>
+                                <td><span class="badge bg-danger">Emergency</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRICING ===== -->
+    <section id="pricing" class="py-5 bg-black">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+
+                <h2 class="display-5 fw-bold text-white">Plans</h2>
+                <p class="text-secondary fs-5">Choose your cybernetic privilege level.</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6" data-aos="flip-left" data-aos-delay="0">
+                    <div class="card bg-dark text-light h-100 p-4 text-center border-secondary">
+                        <div class="bg-black text-secondary d-inline-flex align-items-center justify-content-center rounded mb-3 mx-auto" style="width:70px;height:70px;font-size:2rem;border:1px solid rgba(108,117,125,0.3);">C</div>
+                        <h5 class="fw-bold text-white">CIVILIAN</h5>
+                        <h2 class="fw-bold text-info my-3">Free</h2>
+                        <ul class="list-unstyled text-secondary small text-start px-3">
+                            <li class="mb-2">Basic net access</li>
+                            <li class="mb-2">Public transit</li>
+                            <li class="mb-2">1GB data cap</li>
+                            <li class="mb-2 text-muted">Neural interface</li>
+                            <li class="mb-2 text-muted">District travel</li>
+                            <li class="mb-2 text-muted">Priority support</li>
+                        </ul>
+                        <button class="btn btn-outline-secondary w-100 mt-auto" disabled>Current Plan</button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="flip-left" data-aos-delay="150">
+                    <div class="card bg-dark text-light h-100 p-4 text-center border-info">
+                        <div class="bg-black text-info d-inline-flex align-items-center justify-content-center rounded mb-3 mx-auto" style="width:70px;height:70px;font-size:2rem;border:1px solid rgba(13,202,240,0.3);">E</div>
+                        <span class="badge bg-info text-dark align-self-center mb-2">POPULAR</span>
+                        <h5 class="fw-bold text-white">ENHANCED</h5>
+                        <h2 class="fw-bold text-info my-3">₹100<span class="fs-6 text-secondary">/mo</span></h2>
+                        <ul class="list-unstyled text-secondary small text-start px-3">
+                            <li class="mb-2">Full net access</li>
+                            <li class="mb-2">Neural interface</li>
+                            <li class="mb-2">100GB data cap</li>
+                            <li class="mb-2">3 districts unlocked</li>
+                            <li class="mb-2 text-muted">Quantum core</li>
+                            <li class="mb-2">Standard support</li>
+                        </ul>
+                        <button class="btn btn-outline-info w-100 mt-auto">Upgrade</button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="flip-left" data-aos-delay="300">
+                    <div class="card bg-dark text-light h-100 p-4 text-center border-danger">
+                        <div class="bg-black text-danger d-inline-flex align-items-center justify-content-center rounded mb-3 mx-auto" style="width:70px;height:70px;font-size:2rem;border:1px solid rgba(220,53,69,0.3);">P</div>
+                        <h5 class="fw-bold text-white">ELITE</h5>
+                        <h2 class="fw-bold text-danger my-3">₹1,000<span class="fs-6 text-secondary">/mo</span></h2>
+                        <ul class="list-unstyled text-secondary small text-start px-3">
+                            <li class="mb-2">Unlimited everything</li>
+                            <li class="mb-2">Full neural sync</li>
+                            <li class="mb-2">All 7 districts</li>
+                            <li class="mb-2">Quantum core access</li>
+                            <li class="mb-2">VIP priority support</li>
+                            <li class="mb-2">Monthly chrome discount</li>
+                        </ul>
+                        <button class="btn btn-outline-danger w-100 mt-auto">Go Elite</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== LIST GROUP (Timeline) ===== -->
+    <section class="py-5 bg-dark">
+        <div class="container py-4">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="display-5 fw-bold text-white">City Timeline</h2>
+                <p class="text-secondary fs-5">Key events in Neo-Tokyo's rise.</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <div class="list-group">
+                        <div class="list-group-item list-group-item-action d-flex align-items-center gap-3 py-3 bg-black text-light border-info">
+                            <span class="badge bg-black text-info border border-info" style="min-width:70px;">2055</span>
+                            <div><strong class="text-white">Great Quake</strong><br><small class="text-secondary">Old Tokyo collapses. Reconstruction begins.</small></div>
+                            <span class="badge bg-dark text-info ms-auto">Genesis</span>
+                        </div>
+                        <div class="list-group-item list-group-item-action d-flex align-items-center gap-3 py-3 bg-dark text-info border-info active">
+                            <span class="badge bg-black text-info border border-info" style="min-width:70px;">2062</span>
+                            <div><strong class="text-white">Neural Net Launch</strong><br><small class="text-secondary">First city-wide brain-computer interface goes live.</small></div>
+                            <span class="badge bg-dark text-info ms-auto">Breakthrough</span>
+                        </div>
+                        <div class="list-group-item list-group-item-action d-flex align-items-center gap-3 py-3 bg-black text-light border-secondary">
+                            <span class="badge bg-black text-info border border-info" style="min-width:70px;">2071</span>
+                            <div><strong class="text-white">Corporate War</strong><br><small class="text-secondary">Arasaka vs. Militech — Shinjuku-B is fortified.</small></div>
+                            <span class="badge bg-dark text-info ms-auto">Conflict</span>
+                        </div>
+                        <div class="list-group-item list-group-item-action d-flex align-items-center gap-3 py-3 bg-black text-light border-secondary">
+                            <span class="badge bg-black text-info border border-info" style="min-width:70px;">2080</span>
+                            <div><strong class="text-white">AI Governance</strong><br><small class="text-secondary">The Spire's quantum core assumes city management.</small></div>
+                            <span class="badge bg-dark text-info ms-auto">Evolution</span>
+                        </div>
+                        <div class="list-group-item list-group-item-action d-flex align-items-center gap-3 py-3 bg-black text-light border-secondary">
+                            <span class="badge bg-black text-info border border-info" style="min-width:70px;">2087</span>
+                            <div><strong class="text-white">Present Day</strong><br><small class="text-secondary">12 million citizens. 7 districts. One city.</small></div>
+                            <span class="badge bg-dark text-info ms-auto">Now</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ (Accordion) ===== -->
+    <section id="faq" class="py-5 bg-black">
+        <div class="container py-4">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="display-5 fw-bold text-white">Frequent Queries</h2>
+                <p class="text-secondary fs-5">Common questions from new arrivals.</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item bg-black border-info">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button bg-black text-info" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    How do I get a neural interface license?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-secondary bg-black">
+                                    Visit the Shinjuku-B Cybernetics Bureau (Level 3). Bring your ID chip,
+                                    &yen;5,000 processing fee, and pass the neural aptitude test. Processing takes 24-48 hours.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-black border-info">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed bg-black text-info" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    Which districts are restricted?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-secondary bg-black">
+                                    The Spire requires Elite access tier. Eden-Dome is open to all but
+                                    enforces strict no-chrome policies. Shibuya-&Omega; is fully public.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-black border-info">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed bg-black text-info" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    Can I bring my drone?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-secondary bg-black">
+                                    Personal drones are allowed only in Shibuya-&Omega; and Eden-Dome (eco mode).
+                                    Shinjuku-B has a no-fly zone. The Spire automatically grounds unauthorized UAVs.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-black border-info">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed bg-black text-info" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    How does the currency work?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-secondary bg-black">
+                                    Neo-Tokyo uses digital Yen (&yen;). All transactions are processed through the city's
+                                    quantum ledger. Physical cash is obsolete. Crypto is accepted in Shinjuku-B.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT (Form + Modal) ===== -->
+    <section id="contact" class="py-5 bg-dark">
+        <div class="container py-4">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="display-5 fw-bold text-white">Signal Us</h2>
+                <p class="text-secondary fs-5">Send a message through the grid.</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <form class="row g-4">
+                        <div class="col-md-6">
+                            <label class="form-label text-info">Username</label>
+                            <input type="text" class="form-control bg-black text-light border-info" placeholder="NeonRider_87">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label text-info">District</label>
+                            <select class="form-select bg-black text-light border-info">
+                                <option value="" disabled selected>Select sector</option>
+                                <option>Shibuya-&Omega;</option>
+                                <option>Shinjuku-B</option>
+                                <option>Eden-Dome</option>
+                                <option>The Spire</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label text-info">Message</label>
+                            <textarea class="form-control bg-black text-light border-info" rows="4" placeholder="Encrypt your message..."></textarea>
+                        </div>
+                        <div class="col-12">
+                            <button type="button" class="btn btn-outline-info w-100" data-bs-toggle="modal" data-bs-target="#confirmModal">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MODAL ===== -->
+    <div class="modal fade" id="confirmModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-black border-info">
+                <div class="modal-header border-info">
+                    <h5 class="modal-title text-info">Send Message</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-secondary">
+                    Are you sure you want to send your message?
+                </div>
+                <div class="modal-footer border-info">
+                    <button class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button class="btn btn-outline-info" data-bs-dismiss="modal">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="py-5 bg-black border-top border-info">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h5 class="fw-bold text-white mb-3">NEO·TOKYO</h5>
+                    <p class="text-secondary small">2087 — Where humanity meets machine. All neural activity is monitored by the Spire's AI.</p>
+                </div>
+                <div class="col-md-4">
+                    <h6 class="text-white fw-bold small mb-3">Districts</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Shibuya-&Omega;</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Shinjuku-B</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Eden-Dome</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">The Spire</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h6 class="text-white fw-bold small mb-3">Network</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Status</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">API</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Support</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Careers</a></li>
+                    </ul>
+                </div>
+
+    
+            </div>
+            <hr class="border-secondary my-4">
+            <div class="d-flex flex-wrap justify-content-between align-items-center">
+                <small class="text-secondary">&copy; 2087 NEO·TOKYO </small>
+
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true, offset: 100 });
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    var target = document.querySelector(this.getAttribute('href'));
+                    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

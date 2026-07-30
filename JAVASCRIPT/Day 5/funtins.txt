@@ -1,0 +1,27 @@
+function return
+
+when js reaches a return statemnet , the function will stop executing.
+
+if the function was invoked from a statemnet , js will "return" to execute the code after the invoking statemnet.
+
+
+
+
+high order function
+
+high order functiona are functions which take other function as a paramenter or return a functionas a value
+the function passed as a paramenter is called callback
+
+callback
+
+a callback is a function which can be passed as paramenter to otther fucntions
+
+
+
+
+
+callback function
+
+1.the callback fucntion takes a number n and returns its square
+2. the 'cube' function takes a callback fucntion and a number 'n' , applies the callback to 'n' and then multiples the result by 'n'
+3. 

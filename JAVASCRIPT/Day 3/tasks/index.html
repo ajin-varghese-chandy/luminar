@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KAYAL — A Parallax Journey Through Kerala</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="bg-fader" id="bgFader" aria-hidden="true"></div>
+
+<div id="bird" aria-hidden="true">
+  <svg viewBox="0 0 46 46" fill="none">
+    <path class="wing" d="M22 20 C13 12, 3 12, 0 17 C6 18, 13 20, 22 22 Z" fill="#1B1B1B"/>
+    <path class="wing" d="M22 20 C31 12, 41 12, 44 17 C38 18, 31 20, 22 22 Z" fill="#1B1B1B"/>
+    <ellipse cx="22" cy="21" rx="4.5" ry="3" fill="#1B1B1B"/>
+  </svg>
+</div>
+
+<aside class="hud" id="hud" aria-live="polite">
+  <div class="hud-row"><span>Elevation</span><b id="hud-elev">0 m</b></div>
+  <div class="hud-row"><span>Local time</span><b id="hud-time">5:40 AM</b></div>
+  <div class="hud-row"><span>Distance</span><b id="hud-dist">0 km</b></div>
+  <div class="hud-stop" id="hud-stop">Setting out</div>
+  <div class="hud-track" id="hud-track">
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
+</aside>
+
+<header class="hero" id="hero">
+  <div class="hero-photo" aria-hidden="true"></div>
+  <div class="eyebrow">A day along Kerala's waters and hills</div>
+  <h1>KAYAL</h1>
+  <p>Drift out of the morning mist on Alappuzha's backwaters, up through paddy, monsoon and tea hill, down to a cliffside sunset on the Arabian Sea.</p>
+</header>
+
+<main>
+
+  <section class="stop" id="s1" data-elev-min="0" data-elev-max="-1" data-time="5:40 AM" data-time-end="7:10 AM" data-dist-min="0" data-dist-max="14" data-name="Alappuzha Backwaters">
+    <div class="pl-photo" data-speed="0.35"></div>
+    <div class="pl" data-speed="0.75" id="s1-water"></div>
+    <div class="stop-inner">
+      <div class="stop-index">01 — Alappuzha Backwaters</div>
+      <h2>Where the mist hasn't lifted yet</h2>
+      <div class="range">Sea level · a maze of canals nicknamed "the Venice of the East"</div>
+      <p>A kettuvallam — a houseboat built without a single nail, its hull lashed together with coir rope — slides out before the fishing boats do, coir smoke still hanging over the water.</p>
+      <p>These boats once hauled rice, not tourists: kettu means "tied" and vallam means "boat," a name older than the canals' current, quieter life.</p>
+      <div class="fact">Every August, the Nehru Trophy race turns this same stretch of water into a roar of a hundred paddles, as snake boats race for a trophy first awarded in 1952.</div>
+    </div>
+  </section>
+
+  <section class="stop" id="s2" data-elev-min="-1" data-elev-max="-2.2" data-time="7:10 AM" data-time-end="9:00 AM" data-dist-min="14" data-dist-max="31" data-name="Kuttanad Paddy Fields">
+    <div class="pl-photo" data-speed="0.35"></div>
+    <div class="pl" data-speed="0.8" id="s2-egrets"></div>
+    <div class="stop-inner">
+      <div class="stop-index">02 — Kuttanad Paddy Fields</div>
+      <h2>Farming below the sea</h2>
+      <div class="range">−2.2 m · among the few places on Earth where rice is grown under sea level</div>
+      <p>Bunds of packed mud hold the Arabian Sea at bay while paddy grows in fields that sit lower than the water beside them — a system of dykes and pumps refined over centuries.</p>
+      <p>Egrets follow the tillers here the way gulls follow ships, picking through freshly turned mud for anything the plough has disturbed.</p>
+      <div class="fact">Kuttanad is often called the rice bowl of Kerala, its harvest timed around the monsoon rather than the calendar.</div>
+    </div>
+  </section>
+
+  <section class="stop" id="s3" data-elev-min="-2.2" data-elev-max="900" data-time="9:00 AM" data-time-end="1:00 PM" data-dist-min="31" data-dist-max="98" data-name="Western Ghats — Monsoon">
+    <div class="pl-photo" data-speed="0.3"></div>
+    <div class="pl" data-speed="0.75" id="s3-rain"></div>
+    <div class="stop-inner">
+      <div class="stop-index">03 — Western Ghats, Monsoon</div>
+      <h2>The road climbs into rain</h2>
+      <div class="range">Rising toward 900 m · a UNESCO World Heritage biodiversity hotspot</div>
+      <p>The southwest monsoon meets these hills before it meets almost anywhere else in India, and the forest answers back in the shade of green only wet rock and old trees produce.</p>
+      <p>Elephant crossings are marked with hand-painted signs older than the road markings beside them, and the mist rarely fully clears before dusk.</p>
+      <div class="fact">The Ghats are older than the Himalayas and hold a density of plant and animal species found almost nowhere else on the subcontinent.</div>
+    </div>
+  </section>
+
+  <section class="stop" id="s4" data-elev-min="900" data-elev-max="1600" data-time="1:00 PM" data-time-end="4:00 PM" data-dist-min="98" data-dist-max="132" data-name="Munnar Tea Hills">
+    <div class="pl-photo" data-speed="0.3"></div>
+    <div class="pl" data-speed="0.7" id="s4-mist"></div>
+    <div class="stop-inner">
+      <div class="stop-index">04 — Munnar Tea Hills</div>
+      <h2>Rows planted by hand, a century ago</h2>
+      <div class="range">1,600 m · tea gardens laid out by British planters in the 1870s</div>
+      <p>The hillsides are combed into contour lines of tea bush so exact they look drawn on, still plucked by hand, leaf by leaf, the way they were when the estates were first cut into the slopes.</p>
+      <p>Somewhere in these hills grows the neelakurinji — a shrub that flowers in a single lilac wave across the hillsides only once every twelve years.</p>
+      <div class="fact">Anamudi, the highest peak south of the Himalayas, rises just beyond these estates — visible on the rare morning the cloud lifts before noon.</div>
+    </div>
+  </section>
+
+  <section class="stop" id="s5" data-elev-min="1600" data-elev-max="40" data-time="4:00 PM" data-time-end="6:30 PM" data-dist-min="132" data-dist-max="210" data-name="Varkala Sea Cliffs">
+    <div class="pl-photo" data-speed="0.3"></div>
+    <div class="pl" data-speed="0.75" id="s5-waves"></div>
+    <div class="stop-inner">
+      <div class="stop-index">05 — Varkala Sea Cliffs</div>
+      <h2>The hills give way to a red cliff and the sea</h2>
+      <div class="range">40 m above the Arabian Sea · one of the few cliff-lined coasts in Kerala</div>
+      <p>By evening the road drops all the way back to sea level, ending abruptly at a wall of laterite cliff facing straight into a sun that goes down fast this close to the equator.</p>
+      <p>Freshwater springs, believed mineral-rich for centuries, still seep out of the cliff face just above the tideline, unrelated to and unmixed with the sea beside them.</p>
+      <div class="fact">Varkala's clifftop is also a pilgrimage site — Janardanaswamy Temple has stood at its edge for long enough that no one records exactly when it was first built.</div>
+    </div>
+  </section>
+
+  <section class="outro" id="s6">
+    <div class="pl" data-speed="0.15" id="s6-stars"></div>
+    <div class="stop-index">06 — Kadaloram, the shoreline</div>
+    <h2>The tide comes in and the journey ends here.</h2>
+    <p>Backwater to paddy, monsoon ridge to tea hill, cliff to sea — the same stretch of coastline holds all of it inside one state's width. Everything above happened between one dawn and one dusk.</p>
+    <button class="replay-btn" id="replay">Return to the backwaters</button>
+    <div class="credit">A Kerala parallax scroll study · built with HTML, CSS &amp; vanilla JS</div>
+    <div class="photo-credits">
+      Photographs via Wikimedia Commons, CC BY-SA 4.0 / 3.0 —
+      <a href="https://commons.wikimedia.org/wiki/File:House_boat_from_Alappuzha_01.jpg" target="_blank" rel="noopener">Alappuzha</a> ·
+      <a href="https://commons.wikimedia.org/wiki/File:Paddy_fields_at_Kadavoor.jpg" target="_blank" rel="noopener">Kadavoor paddy fields</a> ·
+      <a href="https://commons.wikimedia.org/wiki/File:Mountains_of_Western_Ghats.jpg" target="_blank" rel="noopener">Western Ghats</a> ·
+      <a href="https://commons.wikimedia.org/wiki/File:Tea_plantations_in_Munnar_town.jpg" target="_blank" rel="noopener">Munnar</a> ·
+      <a href="https://commons.wikimedia.org/wiki/File:Beach_and_cliff_of_varkala.jpg" target="_blank" rel="noopener">Varkala</a> ·
+      <a href="https://commons.wikimedia.org/wiki/File:Houseboats_in_Alleppey_Backwaters.jpg" target="_blank" rel="noopener">hero</a>
+    </div>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

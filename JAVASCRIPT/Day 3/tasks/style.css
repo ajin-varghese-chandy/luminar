@@ -1,0 +1,177 @@
+:root{
+  --ink:#F3F1E7;
+  --ink-dim:rgba(243,241,231,0.72);
+  --gold:#D4A017;
+  --font-display:'Fraunces',serif;
+  --font-body:'Inter',sans-serif;
+  --font-mono:'JetBrains Mono',monospace;
+
+  --c1:#0E2A2E;  /* Alappuzha dawn teal */
+  --c2:#123321;  /* Kuttanad paddy green */
+  --c3:#1B2B31;  /* Western Ghats monsoon slate */
+  --c4:#16281F;  /* Munnar tea green */
+  --c5:#5A1E2C;  /* Varkala sunset maroon */
+  --c6:#0A0D0C;  /* night shoreline */
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+}
+
+body{
+  background:#101614;
+  color:var(--ink);
+  font-family:var(--font-body);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;}
+
+.grain{
+  position:fixed; inset:0; pointer-events:none; z-index:5; opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode:overlay;
+}
+
+/* ---------- Persistent bird ---------- */
+#bird{
+  position:fixed; left:14%; top:32%; width:44px; height:44px; z-index:6;
+  pointer-events:none;
+  filter:drop-shadow(0 2px 6px rgba(0,0,0,0.5));
+  transition:top .25s ease-out, left .25s ease-out;
+}
+#bird svg{width:100%;height:100%;display:block;}
+#bird .wing{ transform-origin:22px 20px; animation:flap 1.6s ease-in-out infinite; }
+@keyframes flap{ 0%,100%{transform:rotate(0deg);} 50%{transform:rotate(-14deg);} }
+
+/* ---------- Background crossfader ---------- */
+.bg-fader{
+  position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden;
+}
+.bg-fader .bg-layer{
+  position:absolute; inset:0;
+  background-size:cover; background-position:center;
+  opacity:0; transition:opacity 0.8s ease;
+  will-change:opacity;
+}
+.bg-fader .bg-layer::after{
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(10,13,12,0.5) 0%, rgba(10,13,12,0.85) 100%);
+}
+
+/* ---------- HUD ---------- */
+.hud{
+  position:fixed; top:50%; right:1.5rem; transform:translateY(-50%); z-index:20;
+  width:228px; padding:1.1rem 1.2rem;
+  background:rgba(8,10,9,0.6);
+  border:1px solid rgba(212,160,23,0.32);
+  border-radius:10px;
+  backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+}
+.hud-title{
+  font-family:var(--font-mono); font-size:.6rem; letter-spacing:.18em; color:var(--gold);
+  text-transform:uppercase; margin-bottom:.7rem; display:flex; justify-content:space-between; align-items:center;
+}
+.hud-dot{ width:6px;height:6px;border-radius:50%; background:var(--gold); box-shadow:0 0 6px var(--gold); animation:pulse 1.8s ease-in-out infinite; }
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.25;}}
+.hud-row{ display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:.7rem; padding:.32rem 0; border-bottom:1px dashed rgba(255,255,255,0.1); color:var(--ink-dim); }
+.hud-row:last-of-type{border-bottom:none;}
+.hud-row b{ color:var(--ink); font-weight:500; }
+.hud-stop{ margin-top:.8rem; font-family:var(--font-display); font-size:1rem; font-weight:600; color:var(--ink); min-height:1.3em; }
+.hud-track{ display:flex; gap:5px; margin-top:.9rem; }
+.hud-track span{ flex:1; height:3px; background:rgba(255,255,255,0.18); border-radius:2px; transition:background .3s ease; }
+.hud-track span.active{ background:var(--gold); box-shadow:0 0 6px var(--gold); }
+
+@media (max-width:760px){
+  .hud{ top:auto; bottom:0; right:0; left:0; transform:none; width:100%; border-radius:0;
+    display:flex; align-items:center; justify-content:space-between; padding:.6rem 1rem; gap:.8rem; }
+  .hud-title, .hud-track{display:none;}
+  .hud-row{border:none;padding:0;font-size:.6rem;flex-direction:column;gap:2px;}
+  .hud-stop{margin:0;font-size:.72rem;order:-1;flex-basis:100%;}
+  #bird{display:none;}
+}
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative; min-height:100vh;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; padding:2rem; z-index:2;
+  overflow:hidden;
+}
+.hero-photo{
+  position:absolute; inset:0; z-index:0;
+  background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Houseboats_in_Alleppey_Backwaters.jpg?width=1600');
+  background-size:cover; background-position:center 60%;
+  filter:saturate(.85) brightness(.5);
+}
+.hero-photo::after{
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(14,42,46,0.55) 0%, rgba(10,13,12,0.85) 100%);
+}
+.hero .eyebrow{ position:relative; z-index:2; font-family:var(--font-mono); font-size:.7rem; letter-spacing:.3em; text-transform:uppercase; color:var(--gold); margin-bottom:1.4rem; }
+.hero h1{ position:relative; z-index:2; font-family:var(--font-display); font-size:clamp(3rem, 9vw, 6.5rem); font-weight:600; letter-spacing:-.01em; line-height:.95; color:var(--ink); }
+.hero p{ position:relative; z-index:2; margin-top:1.4rem; max-width:38ch; color:var(--ink-dim); font-size:1.05rem; line-height:1.65; }
+
+/* ---------- Sections ---------- */
+.stop{ position:relative; min-height:100vh; display:flex; align-items:center; padding:6rem 2rem; z-index:2; overflow:hidden; }
+#s1{ background:var(--c1); } #s2{ background:var(--c2); } #s3{ background:var(--c3); }
+#s4{ background:var(--c4); } #s5{ background:var(--c5); }
+
+.stop-inner{ position:relative; z-index:4; max-width:600px; margin-left:min(8vw, 8rem); }
+@media (max-width:760px){ .stop-inner{ margin-left:0; } }
+
+.stop-index{ font-family:var(--font-mono); font-size:.75rem; letter-spacing:.2em; color:var(--gold); margin-bottom:.9rem; }
+.stop h2{ font-family:var(--font-display); font-size:clamp(2.1rem, 5vw, 3.2rem); font-weight:600; line-height:1.08; margin-bottom:.5rem;
+  text-shadow:0 2px 18px rgba(0,0,0,0.5); }
+.stop .range{ font-family:var(--font-mono); font-size:.82rem; color:var(--ink-dim); margin-bottom:1.4rem; }
+.stop p{ color:var(--ink-dim); line-height:1.72; font-size:1rem; margin-bottom:1rem; max-width:50ch; text-shadow:0 1px 12px rgba(0,0,0,0.4); }
+.stop .fact{ margin-top:1.5rem; padding:.9rem 1.1rem; border-left:2px solid var(--gold);
+  background:rgba(0,0,0,0.32); backdrop-filter:blur(3px); font-size:.88rem; color:var(--ink); max-width:50ch; }
+
+/* parallax layers */
+.pl{ position:absolute; left:0; right:0; top:-15%; height:130%; z-index:1; will-change:transform; pointer-events:none; }
+.pl svg{ width:100%; height:100%; display:block; }
+
+.pl-photo{
+  position:absolute; left:0; right:0; top:-18%; height:136%; z-index:0; will-change:transform;
+  background-size:cover; background-position:center;
+}
+.pl-photo::after{ content:''; position:absolute; inset:0; }
+#s1 .pl-photo{ background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/House_boat_from_Alappuzha_01.jpg?width=1600'); filter:saturate(.9) brightness(.62); }
+#s1 .pl-photo::after{ background:linear-gradient(180deg, rgba(14,42,46,.15) 0%, rgba(14,42,46,.85) 100%); }
+#s2 .pl-photo{ background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Paddy_fields_at_Kadavoor.jpg?width=1600'); filter:saturate(1) brightness(.6); }
+#s2 .pl-photo::after{ background:linear-gradient(180deg, rgba(18,51,33,.1) 0%, rgba(18,51,33,.88) 100%); }
+#s3 .pl-photo{ background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Mountains_of_Western_Ghats.jpg?width=1600'); filter:saturate(.7) brightness(.55) contrast(1.05); }
+#s3 .pl-photo::after{ background:linear-gradient(180deg, rgba(27,43,49,.2) 0%, rgba(27,43,49,.88) 100%); }
+#s4 .pl-photo{ background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Tea_plantations_in_Munnar_town.jpg?width=1600'); filter:saturate(.85) brightness(.6); }
+#s4 .pl-photo::after{ background:linear-gradient(180deg, rgba(22,40,31,.15) 0%, rgba(22,40,31,.88) 100%); }
+#s5 .pl-photo{ background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Beach_and_cliff_of_varkala.jpg?width=1600'); filter:saturate(1) brightness(.65); }
+#s5 .pl-photo::after{ background:linear-gradient(180deg, rgba(90,30,44,.1) 0%, rgba(90,30,44,.85) 100%); }
+
+/* ---------- Outro / arrival ---------- */
+.outro{
+  min-height:90vh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; padding:4rem 2rem; z-index:2; position:relative;
+  background:var(--c6); overflow:hidden;
+}
+.outro h2{ font-family:var(--font-display); font-size:clamp(2rem, 5vw, 3rem); margin-bottom:1rem; position:relative; z-index:3; }
+.outro p{ color:var(--ink-dim); max-width:46ch; line-height:1.72; margin-bottom:2rem; position:relative; z-index:3;}
+.outro .stop-index{ justify-content:center; display:flex; position:relative; z-index:3;}
+.replay-btn{
+  font-family:var(--font-mono); font-size:.8rem; letter-spacing:.1em; text-transform:uppercase;
+  background:transparent; border:1px solid var(--gold); color:var(--gold);
+  padding:.8rem 1.6rem; border-radius:100px; cursor:pointer;
+  transition:background .25s ease, color .25s ease; position:relative; z-index:3;
+}
+.replay-btn:hover, .replay-btn:focus-visible{ background:var(--gold); color:#151C1B; }
+.replay-btn:focus-visible{ outline:2px solid #fff; outline-offset:3px; }
+.credit{ margin-top:2.4rem; font-family:var(--font-mono); font-size:.68rem; color:rgba(243,241,231,0.4); position:relative; z-index:3; max-width:70ch; }
+.credit a{ color:rgba(243,241,231,0.6); text-decoration:underline; text-underline-offset:2px; }
+.credit a:hover{ color:var(--gold); }
+.photo-credits{ margin-top:.9rem; font-family:var(--font-mono); font-size:.62rem; line-height:1.9; color:rgba(243,241,231,0.32); position:relative; z-index:3; }
+.photo-credits a{ color:rgba(243,241,231,0.5); }
+
+:focus-visible{ outline:2px solid var(--gold); outline-offset:2px; }

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <title>ToDo Data</title>
+</head>
+
+<body>
+
+    <h1 class="text-primary text-center">ToDo Data</h1>
+
+    <div class="row">
+
+        <div class="col-4"></div>
+
+        <div class="col-4">
+
+            <center>
+          
+                <table class="border border-3 border-primary">
+              <h1  id="loading" >Loading</h1>
+                    <thead> 
+                        <tr>
+                            <th class="border border-3 border-primary">userId</th>
+                            <th class="border border-3 border-primary">Id</th>
+                            <th class="border border-3 border-primary">Title</th>
+                            <th class="border border-3 border-primary">Completed</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="result">
+
+                    </tbody>
+
+                </table>
+
+            </center>
+
+        </div>
+
+        <div class="col-4"></div>
+
+    </div>
+
+    <script>
+        // new req
+        const res = new XMLHttpRequest();
+        let arr;
+        // connect
+        res.open('get', 'https://jsonplaceholder.typicode.com/todos')
+        // send
+        res.send();
+
+        res.onreadystatechange = () => {
+            
+            if (res.status > 199 && res.status < 300) {
+                arr = JSON.parse(res.responseText);
+                document.getElementById('loading').classList.add('hidden')
+                arr.forEach((el) => {
+                    console.log(el);
+                    result.innerHTML += `
+<tr class="border-b border-gray-300 hover:bg-gray-100 transition">
+    <td class="px-4 py-3 border border-gray-300 text-center">${el.userId}</td>
+    <td class="px-4 py-3 border border-gray-300 text-center">${el.id}</td>
+    <td class="px-4 py-3 border border-gray-300">${el.title}</td>
+    <td class="px-4 py-3 border border-gray-300 text-center">
+        <span class="${el.completed ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'} px-3 py-1 rounded-full text-sm font-semibold">
+            ${el.completed ? 'Completed' : 'Pending'}
+        </span>
+    </td>
+</tr>
+                `
+                })
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

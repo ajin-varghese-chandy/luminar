@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <title>Users</title>
+</head>
+
+<body class="min-h-screen bg-slate-50 text-slate-800">
+
+    <main class="max-w-6xl mx-auto px-5 py-10">
+
+        <!-- Header -->
+        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
+            <div>
+                <p class="text-sm font-medium text-slate-500 mb-1">Dashboard</p>
+                <h1 class="text-3xl font-bold tracking-tight text-slate-900">
+                    Users
+                </h1>
+                <p class="text-slate-500 mt-1">
+                    Manage and view registered users
+                </p>
+            </div>
+
+            <div id="userCount"
+                class="w-fit px-4 py-2 bg-white border border-slate-200 rounded-xl text-sm font-medium shadow-sm">
+                Loading...
+            </div>
+        </div>
+
+        <!-- Loading -->
+        <div id="loading" class="bg-white border border-slate-200 rounded-2xl p-10 text-center shadow-sm">
+            <div class="mx-auto mb-4 w-8 h-8 border-4 border-slate-200 border-t-slate-800 rounded-full animate-spin"></div>
+            <p class="text-slate-500">Loading users...</p>
+        </div>
+
+        <!-- Table Card -->
+        <div id="tableContainer"
+            class="hidden bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+
+            <div class="overflow-x-auto">
+
+                <table class="w-full text-sm">
+
+                    <thead class="bg-slate-900 text-white">
+                        <tr>
+                            <th class="px-6 py-4 text-left font-semibold">ID</th>
+                            <th class="px-6 py-4 text-left font-semibold">Name</th>
+                            <th class="px-6 py-4 text-left font-semibold">Username</th>
+                            <th class="px-6 py-4 text-left font-semibold">Email</th>
+                            <th class="px-6 py-4 text-left font-semibold">Phone</th>
+                            <th class="px-6 py-4 text-left font-semibold">Website</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="result" class="divide-y divide-slate-100">
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+
+        const res = new XMLHttpRequest();
+
+        res.open(
+            'GET',
+            'https://jsonplaceholder.typicode.com/users'
+        );
+
+        res.send();
+
+        res.onreadystatechange = () => {
+
+            if (res.readyState === 4) {
+
+                if (res.status >= 200 && res.status < 300) {
+
+                    const arr = JSON.parse(res.responseText);
+
+                    document.getElementById('loading').classList.add('hidden');
+
+                    document
+                        .getElementById('tableContainer')
+                        .classList.remove('hidden');
+
+                    document.getElementById('userCount').innerText =
+                        `${arr.length} Users`;
+
+                    arr.forEach((el) => {
+
+                        document.getElementById('result').innerHTML += `
+
+                            <tr class="hover:bg-slate-50 transition-colors">
+
+                                <td class="px-6 py-5">
+                                    <span class="inline-flex items-center justify-center
+                                        w-8 h-8 rounded-lg bg-slate-100
+                                        text-slate-700 font-semibold">
+                                        ${el.id}
+                                    </span>
+                                </td>
+
+                                <td class="px-6 py-5">
+                                    <div class="flex items-center gap-3">
+
+                                        <div class="w-10 h-10 rounded-full
+                                            bg-slate-900 text-white
+                                            flex items-center justify-center
+                                            font-semibold">
+                                            ${el.name.charAt(0)}
+                                        </div>
+
+                                        <div>
+                                            <p class="font-semibold text-slate-900">
+                                                ${el.name}
+                                            </p>
+
+                                            <p class="text-xs text-slate-400">
+                                                User #${el.id}
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                </td>
+
+                                <td class="px-6 py-5">
+                                    <span class="text-slate-600">
+                                        @${el.username}
+                                    </span>
+                                </td>
+
+                                <td class="px-6 py-5">
+                                    <a href="mailto:${el.email}"
+                                        class="text-blue-600 hover:text-blue-800 transition">
+                                        ${el.email}
+                                    </a>
+                                </td>
+
+                                <td class="px-6 py-5 text-slate-600">
+                                    ${el.phone}
+                                </td>
+
+                                <td class="px-6 py-5">
+                                    <a href="https://${el.website}"
+                                        target="_blank"
+                                        class="text-blue-600 hover:text-blue-800 transition">
+                                        ${el.website}
+                                    </a>
+                                </td>
+
+                            </tr>
+
+                        `;
+
+                    });
+
+                } else {
+
+                    document.getElementById('loading').innerHTML = `
+                        <div class="text-red-500 font-medium">
+                            Failed to load users
+                        </div>
+                    `;
+
+                }
+
+            }
+
+        };
+
+    </script>
+
+</body>
+
+</html>

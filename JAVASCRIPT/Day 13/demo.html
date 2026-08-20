@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Div</title>
+</head>
+
+<body>
+    <div id="parent">
+        <div id="child">Parent</div>
+    </div>
+
+    <ul id="divElmnt">
+        <li>child</li>
+        <li>child</li>
+        <li>child</li>
+        <li>child</li>
+        <li>child</li>
+    </ul>
+
+    <!-- inner html -->
+
+    <div id="elmnt">
+        <p>Web developer</p>
+    </div>
+
+    <!-- text content -->
+
+    <div id="text">
+        <p>MERN</p>
+    </div>
+    <script>
+      
+        // get parent element
+        const childElement = document.getElementById('child');
+        console.log(childElement);
+        const parentElement = childElement.parentNode;
+        console.log(parentElement);
+
+        // get children element
+        const parent = document.getElementById('divElmnt');
+        console.log(parent);
+        const children = parent.childNodes;
+        console.log(children);
+           
+        // get innerHtml
+        const el = document.getElementById('elmnt')
+        el.innerHTML  = '<h1 style="color:red;font-size:50px;" >Good Thinngsss</h1>'
+
+        // set textcontent
+        const txtEl = document.getElementById('text');
+        console.log(txtEl);
+        txtEl.textContent = 'MEARN';
+    </script>
+</body>
+
+</html>

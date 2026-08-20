@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+    <div class="main min-h-screen flex items-center justify-center gap-16 bg-slate-100 px-6">
+        <img src="https://bordio.com/wp-content/themes/understrap/images/todo-1-1x.png" width="500" height="500"
+            alt="Todo List" class="w-[400px] h-[400px] object-contain">
+
+        <div class="todo-box w-full max-w-md rounded-2xl bg-white p-8 shadow-xl">
+            <h1 class="mb-6 text-4xl font-bold text-slate-800">
+                Todo List
+            </h1>
+
+            <div
+                class="flex overflow-hidden rounded-xl border border-slate-300 focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-200">
+                <img src="list.png" width="50px" height="50px" alt="" srcset="">
+                <input type="text" id="taskInput" placeholder="Enter your task" class="flex-1 px-4 py-3 text-lg
+ text-slate-700 outline-none placeholder:text-slate-400">
+
+                <button onclick="addTask()"
+                    class="w-14 bg-blue-600 text-3xl font-semibold text-white transition hover:bg-blue-700 active:bg-blue-800">
+                    +
+                </button>
+
+            </div>
+            <ul  id="taskList">
+
+            </ul>
+        </div>
+    </div>
+
+    <script src="todo.js"></script>
+ 
+</body>
+
+</html>

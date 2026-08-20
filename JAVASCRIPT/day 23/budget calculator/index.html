@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/855/855390.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-100 text-slate-900" style="background-image: url('bg.png'); background-size: cover; background-attachment: fixed; background-position: center;">
+    <section id="authScreen" class="min-h-screen flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg border-2 border-slate-800 shadow-lg p-6 w-full max-w-md text-center">
+            <h1 class="text-2xl font-bold uppercase mb-1">Budget Calculator</h1>
+            <p class="text-slate-700 text-sm mb-6">Please login to continue</p>
+            <a href="signin.html"
+                class="inline-block w-full px-4 py-2 bg-emerald-600 text-white text-sm font-semibold rounded-md hover:bg-emerald-700 active:bg-emerald-800 mb-3">Login</a>
+            <a href="signup.html"
+                class="inline-block w-full px-4 py-2 bg-slate-800 text-white text-sm font-semibold rounded-md hover:bg-slate-900 active:bg-black">Sign up</a>
+        </div>
+    </section>
+
+    <main id="appScreen" class="max-w-5xl mx-auto p-4 sm:p-6 hidden">
+        <header class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
+            <div>
+                <h1 class="text-2xl font-bold uppercase">Budget Calculator</h1>
+                <p class="text-slate-700 text-sm">Track your monthly income and expenses.</p>
+            </div>
+            <div class="flex items-center gap-3">
+                <span id="userGreeting" class="text-sm font-semibold"></span>
+                <button id="logoutBtn" type="button"
+                    class="px-4 py-2 bg-red-600 text-white text-sm font-semibold rounded-md hover:bg-red-700 active:bg-red-800">Logout</button>
+            </div>
+        </header>
+
+        
+        <section id="summary" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+            <div class="bg-white rounded-lg border-2 border-slate-800 shadow-lg p-4">
+                <p class="text-xs uppercase tracking-wide text-slate-600 font-semibold">Income</p>
+                <p id="sumIncome" class="text-xl font-bold text-emerald-600">$0.00</p>
+            </div>
+            <div class="bg-white rounded-lg border-2 border-slate-800 shadow-lg p-4">
+                <p class="text-xs uppercase tracking-wide text-slate-600 font-semibold">Expenses</p>
+                <p id="sumExpense" class="text-xl font-bold text-red-600">$0.00</p>
+            </div>
+            <div class="bg-white rounded-lg border-2 border-slate-800 shadow-lg p-4">
+                <p class="text-xs uppercase tracking-wide text-slate-600 font-semibold">Remaining</p>
+                <p id="sumRemaining" class="text-xl font-bold">$0.00</p>
+            </div>
+            <div class="bg-white rounded-lg border-2 border-slate-800 shadow-lg p-4">
+                <p class="text-xs uppercase tracking-wide text-slate-600 font-semibold">Budget Left</p>
+                <p id="sumBudgetLeft" class="text-xl font-bold">$0.00</p>
+            </div>
+        </section>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            
+            <section class="bg-white rounded-lg border-2 border-slate-800 shadow-lg p-4">
+                <h2 class="font-semibold mb-3">Income</h2>
+                <form id="incomeForm" class="grid grid-cols-1 sm:grid-cols-[1fr_8rem_auto] gap-2 mb-4">
+                    <input id="incomeDesc" type="text" placeholder="Description (Salary, Freelance...)"
+                        class="min-w-0 px-3 py-2 border-2 border-slate-600 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-emerald-400" required>
+                    <input id="incomeAmt" type="number" min="0" step="0.01" placeholder="Amount"
+                        class="min-w-0 px-3 py-2 border-2 border-slate-600 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-emerald-400" required>
+                    <button type="submit"
+                        class="px-4 py-2 bg-emerald-600 text-white text-sm rounded-md hover:bg-emerald-700 active:bg-emerald-800">Add</button>
+                </form>
+                <ul id="incomeList" class="divide-y divide-slate-300 text-sm"></ul>
+            </section>
+
+            
+            <section class="bg-white rounded-lg border-2 border-slate-800 shadow-lg p-4">
+                <h2 class="font-semibold mb-3">Expenses</h2>
+                <form id="expenseForm" class="grid grid-cols-1 sm:grid-cols-[9rem_1fr_7rem] gap-2 mb-4">
+                    <select id="expenseCat" class="min-w-0 px-3 py-2 border-2 border-slate-600 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-emerald-400">
+                        <option>Housing</option>
+                        <option>Food</option>
+                        <option>Transport</option>
+                        <option>Utilities</option>
+                        <option>Entertainment</option>
+                        <option>Health</option>
+                        <option>Other</option>
+                    </select>
+                    <input id="expenseDesc" type="text" placeholder="Description (Rent, Groceries...)"
+                        class="min-w-0 px-3 py-2 border-2 border-slate-600 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-emerald-400" required>
+                    <input id="expenseAmt" type="number" min="0" step="0.01" placeholder="Amount"
+                        class="min-w-0 px-3 py-2 border-2 border-slate-600 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-emerald-400" required>
+                    <button type="submit"
+                        class="sm:col-span-3 px-4 py-2 bg-red-600 text-white text-sm rounded-md hover:bg-red-700 active:bg-red-800">Add</button>
+                </form>
+                <ul id="expenseList" class="divide-y divide-slate-300 text-sm"></ul>
+            </section>
+        </div>
+
+        
+        <section class="bg-white rounded-lg border-2 border-slate-800 shadow-lg p-4 mt-6">
+            <h2 class="font-semibold mb-3">Budget Settings</h2>
+            <div class="flex flex-col sm:flex-row gap-2 sm:items-end">
+                <div>
+                    <label for="budgetLimit" class="block text-xs text-slate-700 mb-1">Monthly spending limit</label>
+                    <input id="budgetLimit" type="number" min="0" step="0.01" placeholder="e.g. 2000"
+                        class="w-full sm:w-40 px-3 py-2 border-2 border-slate-600 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-emerald-400">
+                </div>
+                <button id="saveBudget" type="button"
+                    class="px-4 py-2 bg-slate-800 text-white text-sm rounded-md hover:bg-slate-900 active:bg-black">Save Limit</button>
+                <p id="budgetStatus" class="text-sm text-slate-700 self-center sm:mb-2 w-full sm:w-auto sm:ml-4"></p>
+            </div>
+        </section>
+
+        
+        <section class="bg-white rounded-lg border-2 border-slate-800 shadow-lg p-4 mt-6">
+            <h2 class="font-semibold mb-3">Spending by Category</h2>
+            <div id="categoryBreakdown" class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1 text-sm"></div>
+        </section>
+
+        
+        <section class="bg-white rounded-lg border-2 border-slate-800 shadow-lg p-4 mt-6">
+            <h2 class="font-semibold mb-3">Report</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm text-left">
+                    <thead>
+                        <tr class="border-b-2 border-slate-700 text-slate-700">
+                            <th class="py-2 pr-4 font-medium">Type</th>
+                            <th class="py-2 pr-4 font-medium">Category</th>
+                            <th class="py-2 pr-4 font-medium">Description</th>
+                            <th class="py-2 pr-4 font-medium text-right">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody id="reportTableBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        
+        <section class="bg-white rounded-lg border-2 border-slate-800 shadow-lg p-4 mt-6">
+            <h2 class="font-semibold mb-3">Expense Pie Chart</h2>
+            <div class="flex flex-col items-center gap-6">
+                <div id="pieChart" class="w-full max-w-md aspect-square rounded-full"
+                    style="background: conic-gradient(#e2e8f0 0 100%)"></div>
+                <div id="pieLegend" class="text-sm space-y-2 w-full max-w-md"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

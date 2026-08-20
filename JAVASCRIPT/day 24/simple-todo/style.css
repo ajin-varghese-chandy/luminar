@@ -1,0 +1,43 @@
+.hidden { display: none !important; }
+
+.is-done .todo-title { text-decoration: line-through; color: var(--bs-secondary); }
+.is-done .dot .chk { color: var(--bs-success); }
+
+.dot .chk { display: none; width: 13px; height: 13px; }
+.is-done .dot .chk { display: block; }
+
+.is-active {
+  background-color: var(--bs-secondary);
+  color: #fff;
+}
+
+body.is-busy .btn,
+body.is-busy .dot { pointer-events: none; opacity: 0.55; }
+
+.toast-c {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2000;
+  display: grid;
+  gap: 8px;
+  max-width: min(420px, calc(100vw - 32px));
+}
+
+.toast {
+  background: #212529;
+  color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 10px 16px;
+  font-size: 14px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+  word-break: break-word;
+}
+
+.toast.show { opacity: 1; transform: translateY(0); }
+.toast.ok { border-left: 4px solid var(--bs-success); }
+.toast.bad { border-left: 4px solid var(--bs-danger); }

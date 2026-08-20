@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-gray-100 text-gray-900">
+
+    <header class="border-b bg-white">
+        <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-5">
+            <h1 class="text-2xl font-bold tracking-tight">My Cart</h1>
+
+            <span id="cartCount"
+                class="rounded-full bg-black px-4 py-2 text-sm font-semibold text-white">
+                0 Items
+            </span>
+        </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-5 py-8">
+
+        <div id="loading" class="py-20 text-center">
+            <div class="mx-auto mb-4 h-8 w-8 animate-spin rounded-full border-4 border-gray-300 border-t-black"></div>
+            <p class="text-gray-500">Loading cart...</p>
+        </div>
+
+        <div id="cartContainer" class="hidden grid gap-8 lg:grid-cols-[1fr_360px]">
+
+            <section>
+                <div class="mb-5 flex items-center justify-between">
+                    <div>
+                        <h2 class="text-xl font-bold">Shopping Cart</h2>
+                        <p id="cartSubtitle" class="mt-1 text-sm text-gray-500"></p>
+                    </div>
+
+                    <button onclick="clearCart()"
+                        class="text-sm font-medium text-red-500 hover:text-red-700">
+                        Clear Cart
+                    </button>
+                </div>
+
+                <div id="cartItems" class="space-y-4"></div>
+            </section>
+
+            <aside class="h-fit rounded-2xl border border-gray-200 bg-white p-6 shadow-sm lg:sticky lg:top-6">
+                <h2 class="mb-6 text-xl font-bold">Order Summary</h2>
+
+                <div class="space-y-4 border-b border-gray-200 pb-6">
+                    <div class="flex justify-between text-sm">
+                        <span class="text-gray-500">Subtotal</span>
+                        <span id="subtotal" class="font-semibold">$0.00</span>
+                    </div>
+
+                    <div class="flex justify-between text-sm">
+                        <span class="text-gray-500">Discount</span>
+                        <span id="discount" class="font-semibold text-green-600">-$0.00</span>
+                    </div>
+
+                    <div class="flex justify-between text-sm">
+                        <span class="text-gray-500">Shipping</span>
+                        <span class="font-semibold text-green-600">Free</span>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between py-6">
+                    <span class="text-lg font-bold">Total</span>
+                    <span id="total" class="text-2xl font-bold">$0.00</span>
+                </div>
+
+                <button
+                    class="w-full rounded-xl bg-black px-5 py-4 font-semibold text-white transition hover:bg-gray-800">
+                    Proceed to Checkout
+                </button>
+
+                <p class="mt-4 text-center text-xs text-gray-400">
+                    Secure checkout
+                </p>
+            </aside>
+        </div>
+
+        <div id="emptyCart" class="hidden py-24 text-center">
+            <div class="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-full bg-gray-200">
+                <svg class="h-9 w-9 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 2h13m-5 4a1 1 0 100 2 1 1 0 000-2zm-7 0a1 1 0 100 2 1 1 0 000-2z" />
+                </svg>
+            </div>
+
+            <h2 class="text-2xl font-bold">Your cart is empty</h2>
+            <p class="mt-2 text-gray-500">Add some products to your cart.</p>
+        </div>
+
+    </main>
+
+    <script>
+        let cart = null;
+
+        async function getCart() {
+            try {
+                const response = await fetch("https://dummyjson.com/carts/1");
+
+                if (!response.ok) {
+                    throw new Error("Failed to fetch cart");
+                }
+
+                cart = await response.json();
+
+                renderCart();
+
+            } catch (error) {
+                document.getElementById("loading").innerHTML = `
+                    <div class="rounded-xl border border-red-200 bg-red-50 p-6 text-red-600">
+                        Failed to load cart.
+                    </div>
+                `;
+            }
+        }
+
+        function renderCart() {
+            document.getElementById("loading").classList.add("hidden");
+
+            if (!cart || cart.products.length === 0) {
+                document.getElementById("emptyCart").classList.remove("hidden");
+                document.getElementById("cartContainer").classList.add("hidden");
+                return;
+            }
+
+            document.getElementById("cartContainer").classList.remove("hidden");
+            document.getElementById("emptyCart").classList.add("hidden");
+
+            const cartItems = document.getElementById("cartItems");
+
+            cartItems.innerHTML = cart.products.map(product => `
+                <article class="flex flex-col gap-5 rounded-2xl border border-gray-200 bg-white p-4 shadow-sm sm:flex-row sm:items-center">
+
+                    <div class="flex h-28 w-full shrink-0 items-center justify-center overflow-hidden rounded-xl bg-gray-100 sm:w-28">
+                        <img
+                            src="${product.thumbnail}"
+                            alt="${product.title}"
+                            class="h-full w-full object-contain mix-blend-multiply"
+                        >
+                    </div>
+
+                    <div class="min-w-0 flex-1">
+                        <div class="flex items-start justify-between gap-4">
+                            <div>
+                                <h3 class="font-bold">${product.title}</h3>
+
+                                <p class="mt-1 text-sm text-gray-500">
+                                    $${product.price} per item
+                                </p>
+                            </div>
+
+                            <button
+                                onclick="removeProduct(${product.id})"
+                                class="text-sm text-gray-400 transition hover:text-red-500">
+                                Remove
+                            </button>
+                        </div>
+
+                        <div class="mt-5 flex items-center justify-between">
+                            <div class="flex items-center rounded-lg border border-gray-300">
+
+                                <button
+                                    onclick="changeQuantity(${product.id}, -1)"
+                                    class="flex h-9 w-9 items-center justify-center text-lg hover:bg-gray-100">
+                                    −
+                                </button>
+
+                                <span class="flex h-9 w-10 items-center justify-center border-x border-gray-300 text-sm font-semibold">
+                                    ${product.quantity}
+                                </span>
+
+                                <button
+                                    onclick="changeQuantity(${product.id}, 1)"
+                                    class="flex h-9 w-9 items-center justify-center text-lg hover:bg-gray-100">
+                                    +
+                                </button>
+
+                            </div>
+
+                            <p class="text-lg font-bold">
+                                $${(product.price * product.quantity).toFixed(2)}
+                            </p>
+                        </div>
+                    </div>
+
+                </article>
+            `).join("");
+
+            updateSummary();
+        }
+
+        function updateSummary() {
+            const subtotal = cart.products.reduce(
+                (sum, product) => sum + product.price * product.quantity,
+                0
+            );
+
+            const discount = cart.products.reduce(
+                (sum, product) =>
+                    sum + (product.price * product.quantity * product.discountPercentage / 100),
+                0
+            );
+
+            const total = subtotal - discount;
+
+            const itemCount = cart.products.reduce(
+                (sum, product) => sum + product.quantity,
+                0
+            );
+
+            document.getElementById("cartCount").textContent =
+                `${itemCount} ${itemCount === 1 ? "Item" : "Items"}`;
+
+            document.getElementById("cartSubtitle").textContent =
+                `${itemCount} ${itemCount === 1 ? "item" : "items"} in your cart`;
+
+            document.getElementById("subtotal").textContent =
+                `$${subtotal.toFixed(2)}`;
+
+            document.getElementById("discount").textContent =
+                `-$${discount.toFixed(2)}`;
+
+            document.getElementById("total").textContent =
+                `$${total.toFixed(2)}`;
+        }
+
+        function changeQuantity(productId, amount) {
+            const product = cart.products.find(
+                product => product.id === productId
+            );
+
+            if (!product) return;
+
+            product.quantity += amount;
+
+            if (product.quantity <= 0) {
+                removeProduct(productId);
+                return;
+            }
+
+            renderCart();
+        }
+
+        function removeProduct(productId) {
+            cart.products = cart.products.filter(
+                product => product.id !== productId
+            );
+
+            renderCart();
+        }
+
+        function clearCart() {
+            cart.products = [];
+            renderCart();
+        }
+
+        getCart();
+    </script>
+
+</body>
+</html>

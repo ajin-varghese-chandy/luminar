@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODOOOOOOOOOOO</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+
+<body class="w-full flex justify-center">
+
+    <table class="w-1/2  text-sm">
+
+        <thead class="bg-slate-900 text-white">
+
+            <tr>
+                <th class="px-6 py-4 text-left font-semibold">UserID</th>
+                <th class="px-6 py-4 text-left font-semibold">Id</th>
+                <th class="px-6 py-4 text-left font-semibold">Title</th>
+                <th class="px-6 py-4 text-left font-semibold">Completed</th>
+            </tr>
+        </thead>
+
+        <tbody id="result" class="divide-y divide-slate-100">
+            <h1 id="loading">loading</h1>
+        </tbody>
+
+    </table>
+
+    <script>
+        fetch('https://jsonplaceholder.typicode.com/todos').then((data) => {
+            const arr = data.json();
+            arr.then((todos) => {
+                console.log(todos);
+                let index = 0;
+                for (let todo of todos) {
+                    if (index <= 10) {
+                        result.innerHTML += `
+                      <th class="px-6 py-4 text-left font-semibold">${todo.userId}</th>
+                    <th class="px-6 py-4 text-left font-semibold">${todo.id}</th>
+                    <th class="px-6 py-4 text-left font-semibold">${todo.title}</th>
+                    <th class=" ${todo.completed ? "text-green-600" : "text-red-600"} px-6 py-4 text-left font-semibold">${todo.completed ? "👽" : "🤬"}</th>
+                    
+                    `
+                        document.getElementById('loading').classList.add('hidden')
+                    }
+                    index++;
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

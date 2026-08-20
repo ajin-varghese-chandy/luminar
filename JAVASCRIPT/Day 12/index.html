@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom</title>
+</head>
+<body>
+    <h1  id="head" >DOM MANIPULATION</h1>
+    <ul class="cls" >
+        <li>document.getElementById()</li>
+        <li>document.getElementByClassName()</li>
+        <li>document.getElementByTagName()</li>
+        <li>document.querySelector()</li>
+        <li>document.querySelectorAll()</li>
+    </ul>
+
+    <button onclick="menuBtn()" >Submit</button>
+
+    <script>
+        const el = document.getElementById('head')
+        el.style.color = 'red'
+
+        const doc = document.getElementsByClassName('cls')
+        console.log(doc);
+
+        console.log(Array.from(doc));
+        console.log(Array.from(doc).map(item => item.style.color='blue'));
+        
+        
+        const lidoc = document.getElementsByTagName('li')
+        console.log(lidoc);
+
+        console.log([...lidoc]);
+        
+        console.log([...lidoc].map(item=>item.style.color='green'));
+        
+        const query = document.querySelector('li')
+        console.log(query);
+
+        const queryId = document.querySelector('#head')
+        console.log(queryId);
+
+        
+        const queryAll = document.querySelectorAll('li')
+        console.log(queryAll);
+
+        
+        const queryCls = document.querySelectorAll('.cls')
+        console.log(queryCls);
+               
+
+        function menuBtn(){
+            alert('welcome to luminar')
+        }
+    </script>
+</body>
+</html>

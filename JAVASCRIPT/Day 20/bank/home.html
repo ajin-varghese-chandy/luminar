@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-slate-50 text-slate-700">
+
+    <nav class="border-b border-slate-200 bg-white">
+        <div class="mx-auto flex min-h-[76px] max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
+            <div class="flex items-center">
+                <h1 class="text-xl font-bold tracking-tight text-blue-700">
+                    My Bank
+                </h1>
+            </div>
+
+            <button
+                onclick="logout()"
+                class="rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-700"
+                type="button"
+            >
+                Logout
+            </button>
+        </div>
+    </nav>
+
+    <main class="mx-auto max-w-7xl px-5 py-10 sm:px-8 lg:px-10">
+
+        <section class="mb-8 rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm">
+            <div id="current_balance" class="text-slate-500">
+                Please login to view your balance
+            </div>
+        </section>
+
+        <h2 class="mb-8 text-center text-3xl font-bold tracking-tight text-blue-700">
+            Your Accounts
+        </h2>
+
+        <div class="grid gap-8 lg:grid-cols-2">
+
+            <section class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h3 class="mb-6 text-xl font-bold text-slate-900">Deposit Money</h3>
+
+                <div class="space-y-4">
+                    <input
+                        type="text"
+                        id="deposite_acno"
+                        placeholder="Account number"
+                        class="w-full h-12 rounded-xl border border-slate-300 bg-slate-50 px-4 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-700 focus:bg-white focus:ring-2 focus:ring-blue-700/10"
+                    />
+
+                    <input
+                        type="number"
+                        id="deposite_amnt"
+                        placeholder="Amount"
+                        class="w-full h-12 rounded-xl border border-slate-300 bg-slate-50 px-4 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-700 focus:bg-white focus:ring-2 focus:ring-blue-700/10"
+                    />
+
+                    <button
+                        onclick="depositeMoney()"
+                        class="w-full h-12 rounded-xl bg-emerald-600 px-5 text-sm font-semibold text-white transition hover:bg-emerald-700"
+                        type="button"
+                    >
+                        Deposit
+                    </button>
+                </div>
+
+                <div id="balance_amount" class="mt-6 text-sm font-medium text-slate-600"></div>
+            </section>
+
+            <section class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h3 class="mb-6 text-xl font-bold text-slate-900">Withdraw Money</h3>
+
+                <div class="space-y-4">
+                    <input
+                        type="text"
+                        id="withdraw_acno"
+                        placeholder="Account number"
+                        class="w-full h-12 rounded-xl border border-slate-300 bg-slate-50 px-4 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-700 focus:bg-white focus:ring-2 focus:ring-blue-700/10"
+                    />
+
+                    <input
+                        type="number"
+                        id="withdraw_amnt"
+                        placeholder="Amount"
+                        class="w-full h-12 rounded-xl border border-slate-300 bg-slate-50 px-4 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-700 focus:bg-white focus:ring-2 focus:ring-blue-700/10"
+                    />
+
+                    <button
+                        onclick="Withdraw()"
+                        class="w-full h-12 rounded-xl bg-rose-600 px-5 text-sm font-semibold text-white transition hover:bg-rose-700"
+                        type="button"
+                    >
+                        Withdraw
+                    </button>
+                </div>
+
+                <div id="Withdraw_amnt" class="mt-6 text-sm font-medium text-slate-600"></div>
+            </section>
+
+        </div>
+    </main>
+
+    <script src="bank.js"></script>
+</body>
+</html>

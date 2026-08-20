@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-slate-50 text-slate-700 flex items-center justify-center px-4 py-8">
+
+    <main class="w-full max-w-md">
+        <section class="bg-white rounded-2xl shadow-xl border border-slate-200 px-6 py-8 sm:px-8">
+
+            <div class="flex justify-center">
+                <div class="w-20 h-20 rounded-2xl bg-blue-50 border border-slate-200 flex items-center justify-center">
+                    <img
+                        src="https://pngimg.com/uploads/bank/bank_PNG5.png"
+                        alt=""
+                        class="w-12 h-12 object-contain"
+                    />
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <h1 class="text-2xl font-bold tracking-tight text-blue-700">
+                    My Bank
+                </h1>
+            </div>
+
+            <form class="mt-8 space-y-4 p-0">
+                <div class="form-field">
+                    <label for="reg_name" class="sr-only">Username</label>
+                    <input
+                        type="text"
+                        name="userName"
+                        id="reg_name"
+                        placeholder="Username"
+                        class="w-full h-12 rounded-xl border border-slate-300 bg-slate-50 px-4 text-sm text-slate-900 placeholder-slate-400 outline-none transition focus:border-blue-700 focus:bg-white focus:ring-2 focus:ring-blue-700/10"
+                    />
+                </div>
+
+                <div class="form-field">
+                    <label for="reg_acno" class="sr-only">Account number</label>
+                    <input
+                        type="text"
+                        name="Account number"
+                        id="reg_acno"
+                        placeholder="Account number"
+                        class="w-full h-12 rounded-xl border border-slate-300 bg-slate-50 px-4 text-sm text-slate-900 placeholder-slate-400 outline-none transition focus:border-blue-700 focus:bg-white focus:ring-2 focus:ring-blue-700/10"
+                    />
+                </div>
+
+                <div class="form-field">
+                    <label for="reg_pswd" class="sr-only">Password</label>
+                    <input
+                        type="password"
+                        name="password"
+                        id="reg_pswd"
+                        placeholder="Password"
+                        class="w-full h-12 rounded-xl border border-slate-300 bg-slate-50 px-4 text-sm text-slate-900 placeholder-slate-400 outline-none transition focus:border-blue-700 focus:bg-white focus:ring-2 focus:ring-blue-700/10"
+                    />
+                </div>
+
+                <button
+                    onclick="register()"
+                    class="btn mt-3 w-full h-12 rounded-xl bg-blue-700 px-5 text-sm font-semibold text-white transition hover:bg-blue-800 active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-offset-2"
+                    type="button"
+                >
+                    Register
+                </button>
+            </form>
+
+            <div class="text-center text-sm mt-6">
+                <a
+                    href="login.html"
+                    class="font-medium text-blue-700 transition hover:text-blue-800 hover:underline underline-offset-4"
+                >
+                    Sign in
+                </a>
+            </div>
+
+        </section>
+    </main>
+  <script src="bank.js"></script>
+</body>
+</html>

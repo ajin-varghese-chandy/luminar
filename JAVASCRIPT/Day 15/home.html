@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0%;
+            margin: 0%;
+        }
+
+        header {
+            width: 100%;
+            background-color: rgb(124, 185, 237);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        h1 {
+            padding: 10px;
+        }
+        button {
+            padding: 20px;
+            background-color: aquamarine;
+            font-size: 20px;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome</h1>
+         <h1 id="usrname" ></h1>
+        <button onclick="logout(9)" >Logout</button>
+    </header>
+    <main>
+
+    </main>
+</body>
+<script>
+    document.getElementById('usrname').innerText = window.localStorage.getItem('name')
+
+    function logout(){
+     localStorage.clear();
+     window.location = './login.html'   
+    }
+</script>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car World</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-gray-100 p-8">
+
+    <h1 class="mb-8 text-center text-4xl font-bold text-gray-800">
+        Car World
+    </h1>
+
+    <div class="mx-auto grid max-w-6xl gap-6 md:grid-cols-3">
+
+        <!-- Store Record -->
+        <div class="rounded-xl bg-white p-6 shadow-lg">
+            <h1 class="mb-5 text-2xl font-bold text-gray-800">
+                Enter Details
+            </h1>
+
+            <div class="space-y-2">
+                <label class="font-medium text-gray-700">Car Brand</label>
+                <input id="carbrand" type="text" placeholder="Car brand"
+                    class="w-full rounded-lg border border-gray-300 px-4 py-2 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200">
+
+                <label class="font-medium text-gray-700">Price</label>
+                <input id="carprice" type="text" placeholder="Price"
+                    class="w-full rounded-lg border border-gray-300 px-4 py-2 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200">
+
+                <label class="font-medium text-gray-700">Key</label>
+                <input id="carkey" type="text" placeholder="Key"
+                    class="w-full rounded-lg border border-gray-300 px-4 py-2 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200">
+
+                <button onclick="add()"
+                    class="mt-3 w-full rounded-lg bg-blue-600 px-4 py-2 font-semibold text-white transition hover:bg-blue-700">
+                    Store Records
+                </button>
+            </div>
+        </div>
+
+        <!-- Retrieve Record -->
+        <div class="rounded-xl bg-white p-6 shadow-lg">
+            <h1 class="mb-5 text-2xl font-bold text-gray-800">
+                Enter Key to Retrieve Item
+            </h1>
+
+            <label class="font-medium text-gray-700">Key</label>
+
+            <input id="getcarkey" type="text" placeholder="Key"
+                class="mt-2 w-full rounded-lg border border-gray-300 px-4 py-2 outline-none focus:border-green-500 focus:ring-2 focus:ring-green-200">
+
+            <button onclick="retrive()"
+                class="mt-4 w-full rounded-lg bg-green-600 px-4 py-2 font-semibold text-white transition hover:bg-green-700">
+                Retrieve Record
+            </button>
+            <div id="retrievedDetails" class="mt-5  rounded-lg bg-gray-100 p-4">
+            </div>
+        </div>
+
+        <!-- Delete Record -->
+        <div class="rounded-xl bg-white p-6 shadow-lg">
+            <h1 class="mb-5 text-2xl font-bold text-gray-800">
+                Enter Key to Delete Item
+            </h1>
+
+            <label class="font-medium text-gray-700">Key</label>
+
+            <input id="removecarkey" type="text" placeholder="Key"
+                class="mt-2 w-full rounded-lg border border-gray-300 px-4 py-2 outline-none focus:border-red-500 focus:ring-2 focus:ring-red-200">
+
+            <button
+            onclick="removeItem()"
+                class="mt-4 w-full rounded-lg bg-red-600 px-4 py-2 font-semibold text-white transition hover:bg-red-700">
+                Remove Records
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Clear All -->
+    <div class="mt-8 text-center">
+        <button onclick="clearAll()"
+            class="rounded-lg bg-gray-800 px-6 py-3 font-semibold text-white transition hover:bg-black">
+            Clear All Records
+        </button>
+    </div>
+
+
+    <script src="car.js"></script>
+</body>
+
+</html>

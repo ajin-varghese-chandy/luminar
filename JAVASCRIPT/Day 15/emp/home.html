@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+
+</head>
+
+<body>
+
+    <body class="min-h-screen bg-gray-100 flex flex-col items-center">
+
+        <header class="w-full flex items-center justify-between bg-blue-600 text-white px-8 py-4 shadow-md">
+            <div class="flex items-center gap-2">
+                <h1 class="text-2xl font-bold">Welcome</h1>
+                <h1 id="usrname" class="text-xl font-semibold"></h1>
+            </div>
+
+            <button onclick="logout()" class="bg-red-500 hover:bg-red-600 px-4 py-2 rounded-lg transition">
+                Logout
+            </button>
+        </header>
+        <div class="search-box  flex gap-3 mt-8 w-full max-w-md">
+            <input type="text" id="emp" placeholder="Search ID" class="flex-1 border rounded-lg px-4 py-3" />
+
+            <button onclick="search()" class="bg-green-600 text-white px-6 rounded-lg hover:bg-green-700">
+                Search
+            </button>
+
+            <div id="empTable" class=" bg-white shadow-lg rounded-xl mt-10 p-6">
+
+            </div>
+        </div>
+        <main class="w-full max-w-md bg-white p-8 rounded-xl shadow-lg mt-10">
+            <h1 class="text-3xl font-bold text-center mb-6">Employee Details</h1>
+
+            <div class="flex flex-col gap-4">
+                <input type="text" id="empid" placeholder="Employee ID" class="w-full border rounded-lg px-4 py-3">
+
+                <input type="text" id="empname" placeholder="Employee Name" class="w-full border rounded-lg px-4 py-3">
+
+                <input type="text" id="empaddr" placeholder="Employee Address"
+                    class="w-full border rounded-lg px-4 py-3">
+
+                <input type="text" id="empdesg" placeholder="Employee Designation"
+                    class="w-full border rounded-lg px-4 py-3">
+
+                <input type="text" id="empexp" placeholder="Employee Experience"
+                    class="w-full border rounded-lg px-4 py-3">
+
+                <input type="text" id="empsalary" placeholder="Employee Salary"
+                    class="w-full border rounded-lg px-4 py-3">
+
+                <button onclick="addEmp()" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700">
+                    Add Employee
+                </button>
+            </div>
+        </main>
+
+
+        <script src="home.js"></script>
+    </body>
+</body>
+
+</html>
